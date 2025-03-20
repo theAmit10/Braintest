@@ -21,7 +21,7 @@ const Header = ({title}) => {
         <Icon name="arrow-left" size={30} color="white" />
       </NeumorphicButton>
       <TextView title={title} />
-      <NeumorphicButton>
+      <NeumorphicButton onPress={() => navigation.navigate('Levels')}>
         <Icon name={'menu'} size={30} color="#fff" />
       </NeumorphicButton>
     </View>

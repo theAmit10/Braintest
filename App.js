@@ -3,7 +3,7 @@ import Main from './src/navigation';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 const App = () => {
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{flex: 1}}>
       <Main />
     </GestureHandlerRootView>
   );
