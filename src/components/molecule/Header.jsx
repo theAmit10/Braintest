@@ -10,12 +10,14 @@ import {COLORS} from '../../contrants';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import NeumorphicButton from '../atom/NeumorphicButton';
 import TextView from '../atom/TextView';
+import {useNavigation} from '@react-navigation/native';
 const {height, width} = Dimensions.get('screen');
 
 const Header = ({title}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.containermain}>
-      <NeumorphicButton>
+      <NeumorphicButton onPress={() => navigation.goBack()}>
         <Icon name="arrow-left" size={30} color="white" />
       </NeumorphicButton>
       <TextView title={title} />

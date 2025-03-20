@@ -15,9 +15,9 @@ import Animated, {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const Footer = () => {
+const Footer = ({showInput, setShowInput}) => {
   const width = useSharedValue(150);
-  const [showInput, setShowInput] = useState(false);
+  // const [showInput, setShowInput] = useState(false);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: interpolate(width.value, [0, 100], [0, 1], Extrapolation.CLAMP),
@@ -26,9 +26,9 @@ const Footer = () => {
   const handlePress = () => {
     setShowInput(!showInput);
     if (showInput) {
-      width.value = withTiming(width.value - 80, {duration: 500});
-    } else {
       width.value = withTiming(150, {duration: 500});
+    } else {
+      width.value = withTiming(width.value - 80, {duration: 500});
     }
   };
 
@@ -39,7 +39,7 @@ const Footer = () => {
       </NeumorphicButton>
       <Animated.View style={[styles.centerCon, {width: width}]}>
         <Text style={styles.text} onPress={handlePress}>
-          {showInput ? ' Submit ' : ' X '}
+          {showInput ? ' X ' : ' Start '}
         </Text>
       </Animated.View>
 
@@ -92,5 +92,6 @@ const styles = StyleSheet.create({
   text: {
     color: 'cyan',
     fontSize: 20,
+    letterSpacing: 2,
   },
 });

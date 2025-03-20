@@ -1,5 +1,7 @@
 // src/theme.js
 
+import {Dimensions} from 'react-native';
+
 export const COLORS = {
   primary: '#4CAF50', // Green
   secondary: '#FF9800', // Orange
@@ -27,3 +29,7 @@ export const SIZES = {
   large: 20,
   xLarge: 24,
 };
+
+const screen = Dimensions.get('screen');
+export const screenWidth = screen.width;
+export const screenHeight = screen.height;
