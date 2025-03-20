@@ -34,5 +34,6 @@ const styles = StyleSheet.create({
   },
   mainbgCon: {
     flex: 1,
+    paddingHorizontal: 10,
   },
 });

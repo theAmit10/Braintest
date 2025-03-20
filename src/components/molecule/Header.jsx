@@ -12,13 +12,13 @@ import NeumorphicButton from '../atom/NeumorphicButton';
 import TextView from '../atom/TextView';
 const {height, width} = Dimensions.get('screen');
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <View style={styles.containermain}>
       <NeumorphicButton>
         <Icon name="arrow-left" size={30} color="white" />
       </NeumorphicButton>
-      <TextView title={'Home'} />
+      <TextView title={title} />
       <NeumorphicButton>
         <Icon name={'menu'} size={30} color="#fff" />
       </NeumorphicButton>

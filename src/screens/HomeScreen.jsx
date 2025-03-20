@@ -6,13 +6,15 @@ import Section from '../components/molecule/Section';
 import Header from '../components/molecule/Header';
 import NeuButton from '../components/atom/NeuButton';
 import TextView from '../components/atom/TextView';
+import {useNavigation} from '@react-navigation/native';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <Background>
       <View style={styles.container}>
         <Header />
-        <NeuButton>
+        <NeuButton onPress={() => navigation.navigate('Play')}>
           <TextView title={'Play'} />
         </NeuButton>
       </View>

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-export const {width, height} = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 const NeuButton = ({onPress, children, style}) => {
   return (
     <TouchableOpacity
