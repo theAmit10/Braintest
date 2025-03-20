@@ -103,8 +103,9 @@ import Animated, {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
+import CustomAlert from './CustomAlert';
 
-const AnswerInput = () => {
+const AnswerInput = ({showAlert}) => {
   const translateX = useSharedValue(0);
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -133,9 +134,13 @@ const AnswerInput = () => {
     });
   };
 
-  const showAlert = () => {
-    Alert.alert('Action', 'Button Moved & Alert Shown');
-  };
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+  // const showAlert = () => {
+  //   // Alert.alert('Action', 'Button Moved & Alert Shown');
+  //   // <CustomAlert />;
+  //   setIsAlertVisible(true); // Show the custom alert
+  // };
 
   return (
     <View style={styles.container} onLayout={onLayout}>

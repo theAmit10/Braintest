@@ -6,16 +6,35 @@ import Question from '../components/molecule/Question';
 import Footer from '../components/molecule/Footer';
 import InputController from '../components/molecule/InputController';
 import AnswerInput from '../components/molecule/AnswerInput';
+import CustomAlert from '../components/molecule/CustomAlert';
 
 const Play = () => {
   const [showInput, setShowInput] = useState(false);
+
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+  const showAlert = () => {
+    // Alert.alert('Action', 'Button Moved & Alert Shown');
+    // <CustomAlert />;
+    setIsAlertVisible(true); // Show the custom alert
+  };
+
   return (
     <Background>
-      <Header title={'Play'} />
+      <Header title={'Level 1'} />
       <Question />
-      {showInput && <AnswerInput />}
+      {showInput && <AnswerInput showAlert={showAlert} />}
       {showInput && <InputController />}
       <Footer showInput={showInput} setShowInput={setShowInput} />
+
+      {/* Show Custom Alert */}
+      {isAlertVisible && (
+        <CustomAlert
+          title="Are you sure?"
+          onConfirm={() => setIsAlertVisible(false)} // Close on Yes
+          onCancel={() => setIsAlertVisible(false)} // Close on No
+        />
+      )}
     </Background>
   );
 };
