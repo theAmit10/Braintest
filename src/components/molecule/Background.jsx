@@ -5,8 +5,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../../contrants';
 
 const Background = ({children}) => {
-  console.log('Children in Background:', children); // ✅ Debugging
-
   return (
     <SafeAreaView style={styles.mainbg}>
       <StatusBar

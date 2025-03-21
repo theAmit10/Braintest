@@ -9,42 +9,44 @@
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-Braintest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Braintest.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1CEB6B30CFB34125933B8694 /* Helvetica-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */; };
+		1D463FA1B6BC4D729A8296DF /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */; };
+		2F8C159E5F704669BD4992B4 /* Helvetica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F18528671C343229F3A5735 /* Helvetica.ttf */; };
+		32BD957F05B94F3FA2E8EECF /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */; };
+		3A0106FC6D514DD4A7CDAE74 /* Elephant.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D1FADADCFF240439D37D734 /* Elephant.ttf */; };
+		3CD3FEC56B944EE08CA0936E /* math_riddles.db in Resources */ = {isa = PBXBuildFile; fileRef = A943DBFD9AF04026880087DF /* math_riddles.db */; };
+		626953BA05DF4ACEBA5C782F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */; };
+		72486F6A41F340E8A5D19497 /* ZCOOL-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		885CCE825A516790F5BBFAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		3A0106FC6D514DD4A7CDAE74 /* Elephant.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D1FADADCFF240439D37D734 /* Elephant.ttf */; };
-		1CEB6B30CFB34125933B8694 /* Helvetica-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */; };
-		2F8C159E5F704669BD4992B4 /* Helvetica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F18528671C343229F3A5735 /* Helvetica.ttf */; };
-		1D463FA1B6BC4D729A8296DF /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */; };
-		32BD957F05B94F3FA2E8EECF /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */; };
-		626953BA05DF4ACEBA5C782F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */; };
-		72486F6A41F340E8A5D19497 /* ZCOOL-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */; };
-		DE6F377C77C0448BB88E1217 /* SFPRO-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */; };
 		C63A8DF9D95C4CD7B0C7C1F5 /* SFPRO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 76ADB8F909A6423DAAB8460D /* SFPRO-REGULAR.OTF */; };
 		D3D4C867655D4A6DB65BCAAC /* robot.json in Resources */ = {isa = PBXBuildFile; fileRef = B4838F1701A04CF2A24F4344 /* robot.json */; };
+		DE6F377C77C0448BB88E1217 /* SFPRO-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F18528671C343229F3A5735 /* Helvetica.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Helvetica.ttf; path = ../assets/fonts/Helvetica.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Braintest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braintest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Braintest/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Braintest/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Braintest/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SFPRO-MEDIUM.OTF"; path = "../assets/fonts/SFPRO-MEDIUM.OTF"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Braintest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Braintest.debug.xcconfig"; path = "Target Support Files/Pods-Braintest/Pods-Braintest.debug.xcconfig"; sourceTree = "<group>"; };
+		4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Braintest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Braintest.release.xcconfig"; path = "Target Support Files/Pods-Braintest/Pods-Braintest.release.xcconfig"; sourceTree = "<group>"; };
+		595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Helvetica-Bold.ttf"; path = "../assets/fonts/Helvetica-Bold.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Braintest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Braintest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Braintest/AppDelegate.swift; sourceTree = "<group>"; };
+		76ADB8F909A6423DAAB8460D /* SFPRO-REGULAR.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SFPRO-REGULAR.OTF"; path = "../assets/fonts/SFPRO-REGULAR.OTF"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Braintest/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9D1FADADCFF240439D37D734 /* Elephant.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Elephant.ttf; path = ../assets/fonts/Elephant.ttf; sourceTree = "<group>"; };
+		A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZCOOL-Regular.ttf"; path = "../assets/fonts/ZCOOL-Regular.ttf"; sourceTree = "<group>"; };
+		A943DBFD9AF04026880087DF /* math_riddles.db */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = math_riddles.db; path = ../assets/db/math_riddles.db; sourceTree = "<group>"; };
+		B4838F1701A04CF2A24F4344 /* robot.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = robot.json; path = ../assets/images/robot.json; sourceTree = "<group>"; };
+		BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		9D1FADADCFF240439D37D734 /* Elephant.ttf */ = {isa = PBXFileReference; name = "Elephant.ttf"; path = "../assets/fonts/Elephant.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */ = {isa = PBXFileReference; name = "Helvetica-Bold.ttf"; path = "../assets/fonts/Helvetica-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0F18528671C343229F3A5735 /* Helvetica.ttf */ = {isa = PBXFileReference; name = "Helvetica.ttf"; path = "../assets/fonts/Helvetica.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */ = {isa = PBXFileReference; name = "ZCOOL-Regular.ttf"; path = "../assets/fonts/ZCOOL-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */ = {isa = PBXFileReference; name = "SFPRO-MEDIUM.OTF"; path = "../assets/fonts/SFPRO-MEDIUM.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		76ADB8F909A6423DAAB8460D /* SFPRO-REGULAR.OTF */ = {isa = PBXFileReference; name = "SFPRO-REGULAR.OTF"; path = "../assets/fonts/SFPRO-REGULAR.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B4838F1701A04CF2A24F4344 /* robot.json */ = {isa = PBXFileReference; name = "robot.json"; path = "../assets/images/robot.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,25 @@
 				5DCACB8F33CDC322A6C60F78 /* libPods-Braintest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E8996EFFFF14D3E87A317C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D1FADADCFF240439D37D734 /* Elephant.ttf */,
+				595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */,
+				0F18528671C343229F3A5735 /* Helvetica.ttf */,
+				BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */,
+				20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */,
+				4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */,
+				A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */,
+				28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */,
+				76ADB8F909A6423DAAB8460D /* SFPRO-REGULAR.OTF */,
+				B4838F1701A04CF2A24F4344 /* robot.json */,
+				A943DBFD9AF04026880087DF /* math_riddles.db */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -118,24 +139,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		7E8996EFFFF14D3E87A317C1 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				9D1FADADCFF240439D37D734 /* Elephant.ttf */,
-				595256A3940D4FA896E288FA /* Helvetica-Bold.ttf */,
-				0F18528671C343229F3A5735 /* Helvetica.ttf */,
-				BF5EB0D9ABC343868096A056 /* Montserrat-Bold.ttf */,
-				20271532C62C4D0E9CAA8E1E /* Montserrat-Regular.ttf */,
-				4ED9B1D5063E4255B5000986 /* Montserrat-SemiBold.ttf */,
-				A225E3666F234445B46AFDFB /* ZCOOL-Regular.ttf */,
-				28089ECC8CCF446FAB6D1BC8 /* SFPRO-MEDIUM.OTF */,
-				76ADB8F909A6423DAAB8460D /* SFPRO-REGULAR.OTF */,
-				B4838F1701A04CF2A24F4344 /* robot.json */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -210,6 +213,7 @@
 				DE6F377C77C0448BB88E1217 /* SFPRO-MEDIUM.OTF in Resources */,
 				C63A8DF9D95C4CD7B0C7C1F5 /* SFPRO-REGULAR.OTF in Resources */,
 				D3D4C867655D4A6DB65BCAAC /* robot.json in Resources */,
+				3CD3FEC56B944EE08CA0936E /* math_riddles.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

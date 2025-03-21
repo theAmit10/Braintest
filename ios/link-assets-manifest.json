@@ -40,6 +40,10 @@
     {
       "path": "assets/images/robot.json",
       "sha1": "49c0899444824c2db4caa7df1292bb5e03101f4d"
+    },
+    {
+      "path": "assets/db/math_riddles.db",
+      "sha1": "cfc195f40746da7317a59cbbe0067378cef2137a"
     }
   ]
 }
