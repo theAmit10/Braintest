@@ -1,6 +1,46 @@
 import db from './database';
 
-export const markAsSolved = questionId => {
+const createTable = () => {
+  db.transaction(tx => {
+    tx.executeSql(
+      `CREATE TABLE IF NOT EXISTS Questions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category TEXT,
+        difficulty TEXT,
+        question TEXT,
+        answer TEXT,
+        solved INTEGER DEFAULT 0
+      )`,
+      [],
+      () => console.log('Table created'),
+      error => console.error('Error creating table: ', error),
+    );
+  });
+};
+
+const insertQuestion = (category, difficulty, question, answer) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      `INSERT INTO Questions (category, difficulty, question, answer, solved) VALUES (?, ?, ?, ?, ?)`,
+      [category, difficulty, question, answer, 0],
+      (_, result) => console.log('Inserted question ID:', result.insertId),
+      error => console.error('Insert error:', error),
+    );
+  });
+};
+
+const getQuestions = callback => {
+  db.transaction(tx => {
+    tx.executeSql(
+      'SELECT * FROM Questions',
+      [],
+      (_, {rows}) => callback(rows.raw()), // Convert result set to array
+      error => console.error('Query error: ', error),
+    );
+  });
+};
+
+const markAsSolved = questionId => {
   db.transaction(tx => {
     tx.executeSql(
       'UPDATE Questions SET solved = 1 WHERE id = ?',
@@ -10,7 +50,8 @@ export const markAsSolved = questionId => {
     );
   });
 };
-export const getUnsolvedQuestions = callback => {
+
+const getUnsolvedQuestions = callback => {
   db.transaction(tx => {
     tx.executeSql(
       'SELECT * FROM Questions WHERE solved = 0',
@@ -21,18 +62,18 @@ export const getUnsolvedQuestions = callback => {
   });
 };
 
-export const getSolvedQuestions = callback => {
+const deleteQuestion = questionId => {
   db.transaction(tx => {
     tx.executeSql(
-      'SELECT * FROM Questions WHERE solved = 1',
-      [],
-      (_, {rows}) => callback(rows.raw()),
-      error => console.error('Query error: ', error),
+      'DELETE FROM Questions WHERE id = ?',
+      [questionId],
+      () => console.log(`Question ${questionId} deleted`),
+      error => console.error('Delete error: ', error),
     );
   });
 };
 
-export const resetSolvedStatus = () => {
+const resetSolvedStatus = () => {
   db.transaction(tx => {
     tx.executeSql(
       'UPDATE Questions SET solved = 0',
@@ -43,93 +84,12 @@ export const resetSolvedStatus = () => {
   });
 };
 
-export const insertQuestion = (
-  category,
-  difficulty,
-  question,
-  hint,
-  explanation,
-  answer,
-) => {
-  db.transaction(tx => {
-    tx.executeSql(
-      `INSERT INTO Questions (category, difficulty, question, hint, explanation, answer) VALUES (?, ?, ?, ?, ?, ?)`,
-      [category, difficulty, question, hint, explanation, answer],
-      (_, result) => console.log('Inserted question ID: ', result.insertId),
-      error => console.error('Insert error: ', error),
-    );
-  });
-};
-
-export const insertAllQuestions = () => {
-  questionsData.questions.forEach(q => {
-    insertQuestion(
-      q.category,
-      q.difficulty,
-      q.question,
-      q.hint,
-      q.explanation,
-      q.answer,
-    );
-  });
-};
-
-export const getQuestions = callback => {
-  db.transaction(tx => {
-    tx.executeSql(
-      'SELECT * FROM Questions',
-      [],
-      (_, {rows}) => {
-        callback(rows.raw()); // Convert result set into array
-      },
-      error => console.error('Query error: ', error),
-    );
-  });
-};
-
-// export const getQuestions = async callback => {
-//   try {
-//     const db = await openDatabase();
-
-//     db.transaction(tx => {
-//       tx.executeSql(
-//         'SELECT * FROM Questions',
-//         [],
-//         (_, {rows}) => {
-//           callback(rows.raw());
-//         },
-//         error => {
-//           console.error('Query error: ', error);
-//           throw error; // Re-throw the error to ensure it's caught
-//         },
-//       );
-//     });
-//   } catch (error) {
-//     console.error('Database error: ', error);
-//   }
-// };
-
-export const deleteAllQuestions = () => {
-  db.transaction(tx => {
-    tx.executeSql('DELETE FROM Questions', [], () =>
-      console.log('All questions deleted'),
-    );
-  });
-};
-
-export const deleteQuestion = (id, callback) => {
-  db.transaction(tx => {
-    tx.executeSql(
-      `DELETE FROM Questions WHERE id = ?`,
-      [id], // Passing id as a parameter
-      (_, result) => {
-        console.log(`Question with ID ${id} deleted successfully`);
-        if (callback) callback(true);
-      },
-      error => {
-        console.error('Error deleting question:', error);
-        if (callback) callback(false);
-      },
-    );
-  });
+export {
+  createTable,
+  insertQuestion,
+  getQuestions,
+  markAsSolved,
+  getUnsolvedQuestions,
+  deleteQuestion,
+  resetSolvedStatus,
 };

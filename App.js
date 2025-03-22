@@ -9,8 +9,8 @@ export const createTable = () => {
   db.transaction(tx => {
     tx.executeSql(
       `CREATE TABLE IF NOT EXISTS Questions (
+        category TEXT, 
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        category TEXT,
         difficulty TEXT,
         question TEXT,
         hint TEXT,

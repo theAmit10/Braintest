@@ -26,13 +26,8 @@ import {
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import LottieView from 'lottie-react-native';
-import {
-  deleteQuestion,
-  getQuestions,
-  insertQuestion,
-  markAsSolved,
-} from '../database/databaseAction';
 import {createTable} from '../../App';
+import {getQuestions} from '../database/databaseAction';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -89,14 +84,12 @@ const HomeScreen = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   createTable();
-  // }, []);
+  useEffect(() => {
+    createTable();
+  }, []);
 
   useEffect(() => {
     getQuestions(data => console.log('All Questions:', data));
-    // markAsSolved(1);
-    // deleteQuestion(2);
   }, []);
 
   return (
