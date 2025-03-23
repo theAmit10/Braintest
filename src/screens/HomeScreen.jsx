@@ -28,6 +28,7 @@ import Animated from 'react-native-reanimated';
 import LottieView from 'lottie-react-native';
 import {createTable} from '../../App';
 import {getQuestions} from '../database/databaseAction';
+import {questiondata} from '../contrants/data';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -91,6 +92,8 @@ const HomeScreen = () => {
   useEffect(() => {
     getQuestions(data => console.log('All Questions:', data));
   }, []);
+
+  console.log(questiondata.questions.length);
 
   return (
     <Background>
