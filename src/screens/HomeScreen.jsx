@@ -29,6 +29,7 @@ import LottieView from 'lottie-react-native';
 import {createTable} from '../../App';
 import {getQuestions} from '../database/databaseAction';
 import {questiondata} from '../contrants/data';
+import useFirstInstall from '../contrants/hooks';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -85,13 +86,14 @@ const HomeScreen = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    createTable();
-  }, []);
+  const isFirstInstall = useFirstInstall();
 
   useEffect(() => {
-    getQuestions(data => console.log('All Questions:', data));
-  }, []);
+    if (isFirstInstall === true) {
+      console.log('Getting all problems');
+      getQuestions(data => console.log('All Questions:', data));
+    }
+  }, [isFirstInstall]);
 
   console.log(questiondata.questions.length);
 

@@ -1,28 +1,18 @@
 import db from './database';
 
-const createTable = () => {
+const insertQuestion = (
+  category,
+  difficulty,
+  question,
+  hint,
+  explanation,
+  answer,
+) => {
   db.transaction(tx => {
     tx.executeSql(
-      `CREATE TABLE IF NOT EXISTS Questions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        category TEXT,
-        difficulty TEXT,
-        question TEXT,
-        answer TEXT,
-        solved INTEGER DEFAULT 0
-      )`,
-      [],
-      () => console.log('Table created'),
-      error => console.error('Error creating table: ', error),
-    );
-  });
-};
-
-const insertQuestion = (category, difficulty, question, answer) => {
-  db.transaction(tx => {
-    tx.executeSql(
-      `INSERT INTO Questions (category, difficulty, question, answer, solved) VALUES (?, ?, ?, ?, ?)`,
-      [category, difficulty, question, answer, 0],
+      `INSERT INTO Questions (category, difficulty, question, hint, explanation, answer, solved) 
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [category, difficulty, question, hint, explanation, answer, 0], // Ensure all columns are provided
       (_, result) => console.log('Inserted question ID:', result.insertId),
       error => console.error('Insert error:', error),
     );
@@ -85,7 +75,6 @@ const resetSolvedStatus = () => {
 };
 
 export {
-  createTable,
   insertQuestion,
   getQuestions,
   markAsSolved,
