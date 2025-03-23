@@ -7,7 +7,7 @@ const useFirstInstall = () => {
   useEffect(() => {
     const checkFirstInstall = async () => {
       const firstInstall = await AsyncStorage.getItem('firstinstall');
-      setIsFirstInstall(firstInstall === null);
+      setIsFirstInstall(firstInstall);
     };
 
     checkFirstInstall();

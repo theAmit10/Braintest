@@ -89,13 +89,12 @@ const HomeScreen = () => {
   const isFirstInstall = useFirstInstall();
 
   useEffect(() => {
-    if (isFirstInstall === true) {
+    if (isFirstInstall) {
       console.log('Getting all problems');
       getQuestions(data => console.log('All Questions:', data));
+      setAllQuestions(getQuestions());
     }
   }, [isFirstInstall]);
-
-  console.log(questiondata.questions.length);
 
   return (
     <Background>
