@@ -55,7 +55,7 @@ const Levels = () => {
             )}
           />
         ) : (
-          <Text style={styles.textStyle}>No questions found</Text>
+          <Text style={styles.textStyle}>No data found</Text>
         )}
       </View>
     </Background>
