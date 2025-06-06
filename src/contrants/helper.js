@@ -43,7 +43,7 @@ export const getCurrentQuestion = async () => {
     // null or undefined
     console.log('currentQuestion is null, fetching first question...');
 
-    const questions = await getQuestions(); // Ensure it is awaited
+    const questions = getQuestions(); // Ensure it is awaited
     console.log('Fetched questions:', questions.length);
 
     if (questions.length === 0) {

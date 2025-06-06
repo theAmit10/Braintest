@@ -33,7 +33,7 @@ const Play = () => {
 
   useEffect(() => {
     fetchQuestion();
-  }, []);
+  }, [question]);
 
   // const question = getCurrentQuestion();
   // console.log('Current Question:', question);
