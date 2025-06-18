@@ -25,5 +25,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     letterSpacing: 1,
+    textAlign: 'center', // 👈 ensures multiline text is centered
+    paddingHorizontal: 30, // 👈 adds padding for longer lines
+    paddingVertical: 10,
+    borderRadius: 10,
   },
 });

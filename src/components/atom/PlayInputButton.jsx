@@ -2,9 +2,9 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {COLORS, screenWidth} from '../../contrants';
 
-const PlayInputButton = ({number}) => {
+const PlayInputButton = ({number, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>{number}</Text>
     </TouchableOpacity>
   );

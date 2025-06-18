@@ -15,7 +15,15 @@ import Animated, {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const Footer = ({showInput, setShowInput}) => {
+const Footer = ({
+  showInput,
+  setShowInput,
+  question,
+  setShowHint,
+  showHint,
+  showNextQuestion,
+  setShowNextQuestion,
+}) => {
   const width = useSharedValue(150);
   // const [showInput, setShowInput] = useState(false);
 
@@ -32,9 +40,17 @@ const Footer = ({showInput, setShowInput}) => {
     }
   };
 
+  const handleHintPress = () => {
+    setShowHint(!showHint);
+  };
+
+  const handleSkipPress = () => {
+    setShowNextQuestion(!showNextQuestion);
+  };
+
   return (
     <View style={styles.container}>
-      <NeumorphicButton>
+      <NeumorphicButton onPress={handleHintPress}>
         <FontAwesome name="lightbulb-o" size={30} color="white" />
       </NeumorphicButton>
       <Animated.View style={[styles.centerCon, {width: width}]}>
@@ -43,7 +59,7 @@ const Footer = ({showInput, setShowInput}) => {
         </Text>
       </Animated.View>
 
-      <NeumorphicButton>
+      <NeumorphicButton onPress={handleSkipPress}>
         <AntDesign name="doubleright" size={30} color="white" />
       </NeumorphicButton>
     </View>

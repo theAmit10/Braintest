@@ -105,7 +105,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import CustomAlert from './CustomAlert';
 
-const AnswerInput = ({showAlert}) => {
+const AnswerInput = ({showAlert, answer, setAnswer}) => {
   const translateX = useSharedValue(0);
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -145,7 +145,7 @@ const AnswerInput = ({showAlert}) => {
   return (
     <View style={styles.container} onLayout={onLayout}>
       <View style={styles.textCon}>
-        <Text style={styles.text}>Answer</Text>
+        <Text style={styles.text}>{answer}</Text>
       </View>
       {/* Animated Ball */}
       <Animated.View style={[styles.ballContainer, animatedStyle]}>

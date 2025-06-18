@@ -17,7 +17,10 @@ import {
 const Play = () => {
   const [showInput, setShowInput] = useState(false);
 
+  const [showHint, setShowHint] = useState(false);
+  const [showNextQuestion, setShowNextQuestion] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [answer, setAnswer] = useState('Answer');
 
   const showAlert = () => {
     // Alert.alert('Action', 'Button Moved & Alert Shown');
@@ -59,9 +62,32 @@ const Play = () => {
     <Background>
       <Header title={`Level ${question.id}`} />
       <Question question={question} />
-      {showInput && <AnswerInput showAlert={showAlert} />}
-      {showInput && <InputController />}
-      <Footer showInput={showInput} setShowInput={setShowInput} />
+      {showInput && (
+        <AnswerInput
+          showAlert={showAlert}
+          answer={answer}
+          setAnswer={setAnswer}
+        />
+      )}
+      {showInput && <InputController answer={answer} setAnswer={setAnswer} />}
+
+      <Footer
+        question={question}
+        showInput={showInput}
+        showHint={showHint}
+        showNextQuestion={showNextQuestion}
+        setShowInput={setShowInput}
+        setShowHint={setShowHint}
+        setShowNextQuestion={setShowNextQuestion}
+      />
+
+      {showHint && (
+        <CustomAlert
+          title="Watch Ads to get the Hint?"
+          onConfirm={() => setShowHint(false)} // Close on Yes
+          onCancel={() => setShowHint(false)} // Close on No
+        />
+      )}
 
       {/* Show Custom Alert */}
       {isAlertVisible && (
@@ -69,6 +95,14 @@ const Play = () => {
           title="Are you sure?"
           onConfirm={() => setIsAlertVisible(false)} // Close on Yes
           onCancel={() => setIsAlertVisible(false)} // Close on No
+        />
+      )}
+
+      {showNextQuestion && (
+        <CustomAlert
+          title="Watch Ads to skip this question ?"
+          onConfirm={() => setShowNextQuestion(false)} // Close on Yes
+          onCancel={() => setShowNextQuestion(false)} // Close on No
         />
       )}
     </Background>
