@@ -134,14 +134,6 @@ const AnswerInput = ({showAlert, answer, setAnswer}) => {
     });
   };
 
-  const [isAlertVisible, setIsAlertVisible] = useState(false);
-
-  // const showAlert = () => {
-  //   // Alert.alert('Action', 'Button Moved & Alert Shown');
-  //   // <CustomAlert />;
-  //   setIsAlertVisible(true); // Show the custom alert
-  // };
-
   return (
     <View style={styles.container} onLayout={onLayout}>
       <View style={styles.textCon}>

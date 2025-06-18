@@ -84,9 +84,13 @@ const InputController = ({answer, setAnswer}) => {
     if (key === '⌫') {
       setAnswer(prev => prev.slice(0, -1)); // remove last character
     } else {
+      if (answer === 'Answer') {
+        setAnswer(key.toString());
+      } else {
+        setAnswer(prev => prev + key.toString());
+      }
       // setAnswer(key.toString()); // Replace
       // If you want to append instead, use:
-      setAnswer(prev => prev + key.toString());
     }
   };
 

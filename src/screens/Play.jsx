@@ -13,6 +13,7 @@ import {
   markAsSolved,
   setNextQuestionAsCurrent,
 } from '../database/databaseAction';
+import CustomHintAleart from '../components/molecule/CustomHintAleart';
 
 const Play = () => {
   const [showInput, setShowInput] = useState(false);
@@ -21,6 +22,7 @@ const Play = () => {
   const [showNextQuestion, setShowNextQuestion] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [answer, setAnswer] = useState('Answer');
+  const [hintView, setHintView] = useState(false);
 
   const showAlert = () => {
     // Alert.alert('Action', 'Button Moved & Alert Shown');
@@ -81,11 +83,23 @@ const Play = () => {
         setShowNextQuestion={setShowNextQuestion}
       />
 
+      {/**  FOR HINT */}
       {showHint && (
         <CustomAlert
           title="Watch Ads to get the Hint?"
-          onConfirm={() => setShowHint(false)} // Close on Yes
+          onConfirm={() => {
+            setShowHint(false);
+            setHintView(true);
+          }} // Close on Yes
           onCancel={() => setShowHint(false)} // Close on No
+        />
+      )}
+
+      {hintView && (
+        <CustomHintAleart
+          title={question.explanation}
+          onConfirm={() => setHintView(false)} // Close on Yes
+          onCancel={() => setHintView(false)} // Close on No
         />
       )}
 
