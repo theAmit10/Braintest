@@ -87,6 +87,7 @@ const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const isFirstInstall = useFirstInstall();
+  console.log(isFirstInstall);
 
   useEffect(() => {
     if (isFirstInstall) {

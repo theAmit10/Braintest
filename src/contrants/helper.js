@@ -35,28 +35,56 @@ export const addDataToDatabase = () => {
   });
 };
 
+// export const getCurrentQuestion = async () => {
+//   let currentQuestion = await AsyncStorage.getItem('currentQuestion');
+//   console.log('Raw currentQuestion from storage:', currentQuestion);
+
+//   if (!currentQuestion) {
+//     // null or undefined
+//     console.log('currentQuestion is null, fetching first question...');
+
+//     const questions = getQuestions(); // Ensure it is awaited
+//     console.log('Fetched questions:', questions.length);
+
+//     if (questions.length === 0) {
+//       console.error('No questions available.');
+//       return null; // Prevent storing undefined
+//     }
+
+//     // Convert first question to JSON and store it
+//     currentQuestion = JSON.stringify(questions[0]);
+//     await AsyncStorage.setItem('currentQuestion', currentQuestion);
+
+//     console.log('Stored first question:', currentQuestion);
+//   }
+
+//   return JSON.parse(currentQuestion); // Ensure it returns an object
+// };
+
 export const getCurrentQuestion = async () => {
   let currentQuestion = await AsyncStorage.getItem('currentQuestion');
   console.log('Raw currentQuestion from storage:', currentQuestion);
 
   if (!currentQuestion) {
-    // null or undefined
     console.log('currentQuestion is null, fetching first question...');
 
-    const questions = getQuestions(); // Ensure it is awaited
-    console.log('Fetched questions:', questions.length);
+    try {
+      const questions = await getQuestions();
+      console.log('Fetched questions:', questions.length);
 
-    if (questions.length === 0) {
-      console.error('No questions available.');
-      return null; // Prevent storing undefined
+      if (questions.length === 0) {
+        console.error('No questions available.');
+        return null;
+      }
+
+      currentQuestion = JSON.stringify(questions[0]);
+      await AsyncStorage.setItem('currentQuestion', currentQuestion);
+      console.log('Stored first question:', currentQuestion);
+    } catch (err) {
+      console.error('Error fetching questions:', err);
+      return null;
     }
-
-    // Convert first question to JSON and store it
-    currentQuestion = JSON.stringify(questions[0]);
-    await AsyncStorage.setItem('currentQuestion', currentQuestion);
-
-    console.log('Stored first question:', currentQuestion);
   }
 
-  return JSON.parse(currentQuestion); // Ensure it returns an object
+  return JSON.parse(currentQuestion);
 };

@@ -2,9 +2,6 @@ import React, {useEffect} from 'react';
 import Main from './src/navigation';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import db from './src/database/database';
-import openDatabase from './src/database/database';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {deleteQuestion, insertQuestion} from './src/database/databaseAction';
 import {checkFirstInstall} from './src/contrants/helper';
 
 export const createTable = () => {
@@ -29,22 +26,8 @@ export const createTable = () => {
 };
 
 const App = () => {
-  // useEffect(() => {
-  //   openDatabase();
-  // }, []);
-
   useEffect(() => {
     checkFirstInstall();
-    // insertQuestion(
-    //   'Number Puzzles',
-    //   1,
-    //   'Easy',
-    //   'What number should replace the question mark? 2, 4, 6, ?, 10',
-    //   "It's a simple addition pattern.",
-    //   'Each number increases by 2. The missing number is 8.',
-    //   '8',
-    //   0,
-    // );
   }, []);
 
   return (

@@ -9,6 +9,10 @@ import AnswerInput from '../components/molecule/AnswerInput';
 import CustomAlert from '../components/molecule/CustomAlert';
 import currentQuestion from '../store/currentQuestion';
 import {getCurrentQuestion} from '../contrants/helper';
+import {
+  markAsSolved,
+  setNextQuestionAsCurrent,
+} from '../database/databaseAction';
 
 const Play = () => {
   const [showInput, setShowInput] = useState(false);
@@ -33,15 +37,28 @@ const Play = () => {
 
   useEffect(() => {
     fetchQuestion();
-  }, [question]);
+    // handleCorrectAnswer(question);
+  }, []);
+
+  const handleCorrectAnswer = async currentQuestion => {
+    await markAsSolved(currentQuestion.id);
+    const nextQuestion = await setNextQuestionAsCurrent();
+
+    if (!nextQuestion) {
+      // Show end-of-quiz message or restart option
+      console.log('All questions solved!');
+    } else {
+      console.log('Loaded next question:', nextQuestion.question);
+    }
+  };
 
   // const question = getCurrentQuestion();
   // console.log('Current Question:', question);
 
   return (
     <Background>
-      <Header title={'Level 1'} />
-      <Question />
+      <Header title={`Level ${question.id}`} />
+      <Question question={question} />
       {showInput && <AnswerInput showAlert={showAlert} />}
       {showInput && <InputController />}
       <Footer showInput={showInput} setShowInput={setShowInput} />
