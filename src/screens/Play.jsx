@@ -26,24 +26,26 @@ import {
   RewardedInterstitialAd,
 } from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__
-  ? TestIds.INTERSTITIAL
-  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+// const adUnitId = __DEV__
+//   ? TestIds.INTERSTITIAL
+//   : 'ca-app-pub-7633228298096492~7079873038';
 
-const adUnitIdAnswer = __DEV__
-  ? TestIds.REWARDED_INTERSTITIAL
-  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
 
-const rewardedInterstitial = RewardedInterstitialAd.createForAdRequest(
-  adUnitIdAnswer,
-  {
-    keywords: ['fashion', 'clothing'],
-  },
-);
+// const adUnitIdAnswer = __DEV__
+//   ? TestIds.REWARDED_INTERSTITIAL
+//   : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
-const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-  keywords: ['fashion', 'clothing'],
-});
+// const rewardedInterstitial = RewardedInterstitialAd.createForAdRequest(
+//   adUnitIdAnswer,
+//   {
+//     keywords: ['fashion', 'clothing'],
+//   },
+// );
+
+// const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+//   keywords: ['fashion', 'clothing'],
+// });
 
 const Play = () => {
   const navigation = useNavigation();

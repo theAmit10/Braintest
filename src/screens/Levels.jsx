@@ -15,9 +15,11 @@ import {
   useForeground,
 } from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__
-  ? TestIds.ADAPTIVE_BANNER
-  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+// const adUnitId = __DEV__
+//   ? TestIds.ADAPTIVE_BANNER
+//   : 'ca-app-pub-7633228298096492~7079873038';
+
+const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
 
 const Levels = () => {
   const [allQuestions, setAllQuestions] = useState([]);
