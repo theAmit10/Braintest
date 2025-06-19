@@ -68,6 +68,17 @@ const Play = () => {
     }
   };
 
+  const skipThisQuestion = async () => {
+    setAnswerView(false);
+
+    await markAsSolved(question.id);
+    const nextQuestion = await setNextQuestionAsCurrent();
+
+    if (nextQuestion) {
+      setQuestion(nextQuestion); // ✅ Set new question in state
+    }
+  };
+
   return (
     <Background>
       <Header title={`Level ${question.id}`} />
@@ -140,11 +151,8 @@ const Play = () => {
           title="Your answer is"
           subtitle={question.answer}
           explanation={question.explanation}
-          onConfirm={() => {
-            setIsAlertVisible(false);
-            navigation.replace('Play');
-          }} // Close on Yes
-          onCancel={() => setIsAlertVisible(false)} // Close on No
+          onConfirm={skipThisQuestion} // Close on Yes
+          onCancel={() => setAnswerView(false)} // Close on No
         />
       )}
     </Background>
