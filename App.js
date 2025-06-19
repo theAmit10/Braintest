@@ -3,6 +3,7 @@ import Main from './src/navigation';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import db from './src/database/database';
 import {checkFirstInstall} from './src/contrants/helper';
+import MobileAds from 'react-native-google-mobile-ads';
 
 export const createTable = () => {
   console.log('DB Object:', db); // Debug: Check if db is imported correctly
@@ -28,6 +29,14 @@ export const createTable = () => {
 const App = () => {
   useEffect(() => {
     checkFirstInstall();
+  }, []);
+
+  useEffect(() => {
+    MobileAds()
+      .initialize()
+      .then(adapterStatuses => {
+        console.log('Initialized', adapterStatuses);
+      });
   }, []);
 
   return (

@@ -17,7 +17,16 @@ import Animated from 'react-native-reanimated';
 import LottieView from 'lottie-react-native';
 import {getQuestions} from '../database/databaseAction';
 import useFirstInstall from '../contrants/hooks';
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+  useForeground,
+} from 'react-native-google-mobile-ads';
 
+const adUnitId = __DEV__
+  ? TestIds.ADAPTIVE_BANNER
+  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -160,6 +169,15 @@ const HomeScreen = () => {
             </LinearGradient>
           </Pressable>
         </View>
+        <BannerAd
+          unitId={adUnitId}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          requestOptions={{
+            networkExtras: {
+              collapsible: 'bottom',
+            },
+          }}
+        />
       </View>
     </Background>
   );
@@ -172,7 +190,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     gap: 20,
-    paddingBottom: 50,
   },
   mainContainer: {
     flex: 1,

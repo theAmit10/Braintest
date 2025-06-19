@@ -1,5 +1,5 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {useRef} from 'react';
 import {COLORS} from '../../contrants';
 
 const Question = ({question}) => {
