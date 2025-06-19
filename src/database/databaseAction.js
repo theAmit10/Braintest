@@ -4,6 +4,25 @@ import db from './database';
 /**
  * Insert a new question into the database.
  */
+// const insertQuestion = (
+//   category,
+//   difficulty,
+//   question,
+//   hint,
+//   explanation,
+//   answer,
+// ) => {
+//   db.transaction(tx => {
+//     tx.executeSql(
+//       `INSERT INTO Questions (category, difficulty, question, hint, explanation, answer, solved)
+//        VALUES (?, ?, ?, ?, ?, ?, ?)`,
+//       [category, difficulty, question, hint, explanation, answer, 0],
+//       (_, result) => console.log('Inserted question ID:', result.insertId),
+//       error => console.error('Insert error:', error),
+//     );
+//   });
+// };
+
 const insertQuestion = (
   category,
   difficulty,
@@ -14,9 +33,9 @@ const insertQuestion = (
 ) => {
   db.transaction(tx => {
     tx.executeSql(
-      `INSERT INTO Questions (category, difficulty, question, hint, explanation, answer, solved) 
+      `INSERT INTO Questions (category, difficulty, question, hint, explanation, answer, solved)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [category, difficulty, question, hint, explanation, answer, 0],
+      [category, difficulty, question, hint, explanation, answer, 0], // correct order
       (_, result) => console.log('Inserted question ID:', result.insertId),
       error => console.error('Insert error:', error),
     );

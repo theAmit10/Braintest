@@ -3,7 +3,7 @@ import React from 'react';
 import {COLORS, screenHeight, screenWidth} from '../../contrants';
 import TextView from '../atom/TextView';
 
-const CustomAlert = ({title, onConfirm, onCancel, subtitle}) => {
+const AnswerToast = ({title, onConfirm, onCancel, subtitle}) => {
   return (
     <View style={styles.container}>
       <View style={styles.maincontainer}>
@@ -12,11 +12,13 @@ const CustomAlert = ({title, onConfirm, onCancel, subtitle}) => {
           <Text style={styles.subtitle}>{subtitle}</Text>
         </View>
         <View style={styles.bottomCon}>
-          <TouchableOpacity onPress={onCancel} style={styles.nobtn}>
+          {/* <TouchableOpacity onPress={onCancel} style={styles.nobtn}>
             <Text style={styles.textYes}>Cancel</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={onConfirm} style={styles.yesbtn}>
-            <Text style={styles.textYes}>Yes</Text>
+            <Text style={styles.textYes}>
+              {subtitle === 'Wrong' ? 'Try Again' : 'Next Question'}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -24,7 +26,7 @@ const CustomAlert = ({title, onConfirm, onCancel, subtitle}) => {
   );
 };
 
-export default CustomAlert;
+export default AnswerToast;
 
 const styles = StyleSheet.create({
   container: {

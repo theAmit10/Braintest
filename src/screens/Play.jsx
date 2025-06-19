@@ -14,8 +14,11 @@ import {
   setNextQuestionAsCurrent,
 } from '../database/databaseAction';
 import CustomHintAleart from '../components/molecule/CustomHintAleart';
+import AnswerToast from '../components/molecule/AnswerToast';
+import {useNavigation} from '@react-navigation/native';
 
 const Play = () => {
+  const navigation = useNavigation();
   const [showInput, setShowInput] = useState(false);
 
   const [showHint, setShowHint] = useState(false);
@@ -23,11 +26,11 @@ const Play = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [answer, setAnswer] = useState('Answer');
   const [hintView, setHintView] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState('');
 
   const showAlert = () => {
-    // Alert.alert('Action', 'Button Moved & Alert Shown');
-    // <CustomAlert />;
     setIsAlertVisible(true); // Show the custom alert
+    checkAnswerIsCorrectOrNot(answer, question.answer);
   };
 
   // const {question} = currentQuestion();
@@ -57,8 +60,14 @@ const Play = () => {
     }
   };
 
-  // const question = getCurrentQuestion();
-  // console.log('Current Question:', question);
+  const checkAnswerIsCorrectOrNot = (mineAnswer, correctAnswer) => {
+    if (mineAnswer === correctAnswer) {
+      handleCorrectAnswer(question);
+      setCorrectAnswer('Correct');
+    } else {
+      setCorrectAnswer('Wrong');
+    }
+  };
 
   return (
     <Background>
@@ -97,7 +106,7 @@ const Play = () => {
 
       {hintView && (
         <CustomHintAleart
-          title={question.explanation}
+          title={question.hint}
           onConfirm={() => setHintView(false)} // Close on Yes
           onCancel={() => setHintView(false)} // Close on No
         />
@@ -105,9 +114,13 @@ const Play = () => {
 
       {/* Show Custom Alert */}
       {isAlertVisible && (
-        <CustomAlert
-          title="Are you sure?"
-          onConfirm={() => setIsAlertVisible(false)} // Close on Yes
+        <AnswerToast
+          title="Your answer is"
+          subtitle={correctAnswer}
+          onConfirm={() => {
+            setIsAlertVisible(false);
+            navigation.replace('Play');
+          }} // Close on Yes
           onCancel={() => setIsAlertVisible(false)} // Close on No
         />
       )}

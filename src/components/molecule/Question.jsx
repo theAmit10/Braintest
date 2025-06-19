@@ -5,7 +5,7 @@ import {COLORS} from '../../contrants';
 const Question = ({question}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{question?.hint}</Text>
+      <Text style={styles.text}>{question?.question}</Text>
     </View>
   );
 };
