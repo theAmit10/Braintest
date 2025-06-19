@@ -17,11 +17,9 @@ const Levels = () => {
     const fetchQuestions = async () => {
       try {
         console.log('Fetching questions from DB...');
-        getQuestions(data => {
-          console.log('Fetched Questions:', data);
-          setAllQuestions(data); // ✅ Properly setting state
-          setIsLoading(false);
-        });
+        const questions = await getQuestions(); // ✅ await the promise
+        setAllQuestions(questions);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching questions:', error);
         setIsLoading(false);
@@ -31,9 +29,10 @@ const Levels = () => {
     if (isFirstInstall !== null) {
       fetchQuestions();
     }
-  }, [isFirstInstall]); // ✅ Only run when first install state changes
+  }, [isFirstInstall]);
 
   console.log('Rendered Questions:', allQuestions);
+  console.log('all questions length', allQuestions?.length);
 
   return (
     <Background>
@@ -49,7 +48,11 @@ const Levels = () => {
             renderItem={({item, index}) => (
               <Animated.View
                 entering={FadeInDown.delay(index * 100)}
-                style={styles.contentContainer}>
+                style={{
+                  ...styles.contentContainer,
+                  backgroundColor:
+                    item.solved === 1 ? COLORS.success : COLORS.backgroundLight,
+                }}>
                 <Text style={styles.textStyle}>Level {item.id}</Text>
               </Animated.View>
             )}
