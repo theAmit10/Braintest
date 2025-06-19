@@ -8,6 +8,16 @@ import useFirstInstall from '../contrants/hooks';
 import {getQuestions} from '../database/databaseAction';
 import {getCurrentQuestion} from '../contrants/helper';
 import {useNavigation} from '@react-navigation/native';
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+  useForeground,
+} from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__
+  ? TestIds.ADAPTIVE_BANNER
+  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
 const Levels = () => {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -71,40 +81,51 @@ const Levels = () => {
         {isLoading ? (
           <Text style={styles.textStyle}>Loading...</Text>
         ) : allQuestions.length > 0 ? (
-          <FlatList
-            ref={flatListRef}
-            data={allQuestions}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={item => item.id.toString()}
-            getItemLayout={(data, index) => ({
-              length: 80,
-              offset: 80 * index,
-              index,
-            })}
-            renderItem={({item, index}) => (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => {
-                  if (item.solved === 1) {
-                    navigation.navigate('PreviousQuestion', {
-                      question: item,
-                    });
-                  }
-                }}>
-                <Animated.View
-                  entering={FadeInDown.delay(index * 100)}
-                  style={{
-                    ...styles.contentContainer,
-                    backgroundColor:
-                      item.solved === 1
-                        ? COLORS.success
-                        : COLORS.backgroundLight,
+          <>
+            <FlatList
+              ref={flatListRef}
+              data={allQuestions}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={item => item.id.toString()}
+              getItemLayout={(data, index) => ({
+                length: 80,
+                offset: 80 * index,
+                index,
+              })}
+              renderItem={({item, index}) => (
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    if (item.solved === 1) {
+                      navigation.navigate('PreviousQuestion', {
+                        question: item,
+                      });
+                    }
                   }}>
-                  <Text style={styles.textStyle}>Level {item.id}</Text>
-                </Animated.View>
-              </TouchableOpacity>
-            )}
-          />
+                  <Animated.View
+                    entering={FadeInDown.delay(index * 100)}
+                    style={{
+                      ...styles.contentContainer,
+                      backgroundColor:
+                        item.solved === 1
+                          ? COLORS.success
+                          : COLORS.backgroundLight,
+                    }}>
+                    <Text style={styles.textStyle}>Level {item.id}</Text>
+                  </Animated.View>
+                </TouchableOpacity>
+              )}
+            />
+            <BannerAd
+              unitId={adUnitId}
+              size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+              requestOptions={{
+                networkExtras: {
+                  collapsible: 'bottom',
+                },
+              }}
+            />
+          </>
         ) : (
           <Text style={styles.textStyle}>No data found</Text>
         )}
