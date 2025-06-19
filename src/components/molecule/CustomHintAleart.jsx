@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {COLORS, screenHeight, screenWidth} from '../../contrants';
+import {FONT} from '../../../assets/constants';
 
 const CustomHintAleart = ({title, onConfirm, onCancel}) => {
   return (
@@ -74,12 +75,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textYes: {
+  text: {
     color: COLORS.white,
     fontSize: 20,
     fontWeight: '200',
+    fontFamily: FONT.Montserrat_Regular,
   },
-  text: {
+  subtitle: {
+    color: COLORS.white,
+    fontSize: 25,
+    fontWeight: '400',
+    fontFamily: FONT.Montserrat_Bold,
+  },
+  textYes: {
     color: COLORS.white,
     fontSize: 20,
     fontWeight: '200',

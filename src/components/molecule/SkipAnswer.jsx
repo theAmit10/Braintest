@@ -4,20 +4,24 @@ import {COLORS, screenHeight, screenWidth} from '../../contrants';
 import TextView from '../atom/TextView';
 import {FONT} from '../../../assets/constants';
 
-const CustomAlert = ({title, onConfirm, onCancel, subtitle}) => {
+const SkipAnswer = ({title, onConfirm, onCancel, subtitle, explanation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.maincontainer}>
         <View style={styles.topCon}>
           <Text style={styles.text}>{title}</Text>
           <Text style={styles.subtitle}>{subtitle}</Text>
+          <Text style={styles.subtitle}>Explanation</Text>
+          <Text style={styles.text}>{explanation}</Text>
         </View>
         <View style={styles.bottomCon}>
-          <TouchableOpacity onPress={onCancel} style={styles.nobtn}>
+          {/* <TouchableOpacity onPress={onCancel} style={styles.nobtn}>
             <Text style={styles.textYes}>Cancel</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={onConfirm} style={styles.yesbtn}>
-            <Text style={styles.textYes}>Yes</Text>
+            <Text style={styles.textYes}>
+              {subtitle === 'Wrong' ? 'Try Again' : 'Next Question'}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -25,7 +29,7 @@ const CustomAlert = ({title, onConfirm, onCancel, subtitle}) => {
   );
 };
 
-export default CustomAlert;
+export default SkipAnswer;
 
 const styles = StyleSheet.create({
   container: {
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   maincontainer: {
-    height: 300,
+    minHeight: 300,
     width: 300,
     backgroundColor: COLORS.background,
     borderRadius: 10,

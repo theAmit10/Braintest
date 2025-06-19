@@ -2,6 +2,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {COLORS, screenHeight, screenWidth} from '../../contrants';
 import TextView from '../atom/TextView';
+import {FONT} from '../../../assets/constants';
 
 const AnswerToast = ({title, onConfirm, onCancel, subtitle}) => {
   return (
@@ -86,10 +87,12 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 20,
     fontWeight: '200',
+    fontFamily: FONT.Montserrat_Regular,
   },
   subtitle: {
     color: COLORS.white,
     fontSize: 25,
     fontWeight: '400',
+    fontFamily: FONT.Montserrat_Bold,
   },
 });

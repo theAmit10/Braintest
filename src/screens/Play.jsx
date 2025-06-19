@@ -16,6 +16,7 @@ import {
 import CustomHintAleart from '../components/molecule/CustomHintAleart';
 import AnswerToast from '../components/molecule/AnswerToast';
 import {useNavigation} from '@react-navigation/native';
+import SkipAnswer from '../components/molecule/SkipAnswer';
 
 const Play = () => {
   const navigation = useNavigation();
@@ -27,13 +28,12 @@ const Play = () => {
   const [answer, setAnswer] = useState('Answer');
   const [hintView, setHintView] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState('');
+  const [answerView, setAnswerView] = useState(false);
 
   const showAlert = () => {
     setIsAlertVisible(true); // Show the custom alert
     checkAnswerIsCorrectOrNot(answer, question.answer);
   };
-
-  // const {question} = currentQuestion();
 
   const [question, setQuestion] = useState('');
 
@@ -45,7 +45,6 @@ const Play = () => {
 
   useEffect(() => {
     fetchQuestion();
-    // handleCorrectAnswer(question);
   }, []);
 
   const handleCorrectAnswer = async currentQuestion => {
@@ -128,8 +127,24 @@ const Play = () => {
       {showNextQuestion && (
         <CustomAlert
           title="Watch Ads to skip this question ?"
-          onConfirm={() => setShowNextQuestion(false)} // Close on Yes
+          onConfirm={() => {
+            setShowNextQuestion(false);
+            setAnswerView(true);
+          }} // Close on Yes
           onCancel={() => setShowNextQuestion(false)} // Close on No
+        />
+      )}
+
+      {answerView && (
+        <SkipAnswer
+          title="Your answer is"
+          subtitle={question.answer}
+          explanation={question.explanation}
+          onConfirm={() => {
+            setIsAlertVisible(false);
+            navigation.replace('Play');
+          }} // Close on Yes
+          onCancel={() => setIsAlertVisible(false)} // Close on No
         />
       )}
     </Background>
