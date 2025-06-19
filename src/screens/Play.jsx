@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Background from '../components/molecule/Background';
 import Header from '../components/molecule/Header';
@@ -17,6 +17,21 @@ import CustomHintAleart from '../components/molecule/CustomHintAleart';
 import AnswerToast from '../components/molecule/AnswerToast';
 import {useNavigation} from '@react-navigation/native';
 import SkipAnswer from '../components/molecule/SkipAnswer';
+import {
+  InterstitialAd,
+  AdEventType,
+  TestIds,
+  RewardedAd,
+  RewardedAdEventType,
+} from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__
+  ? TestIds.INTERSTITIAL
+  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ['fashion', 'clothing'],
+});
 
 const Play = () => {
   const navigation = useNavigation();
@@ -79,6 +94,68 @@ const Play = () => {
     }
   };
 
+  // FOR REWARDED ADS
+  const [loaded, setLoaded] = useState(false);
+
+  // const showAd = () => {
+  //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+  //     requestNonPersonalizedAdsOnly: true,
+  //     keywords: ['fashion', 'clothing'],
+  //   });
+
+  //   const unsubscribeLoaded = rewarded.addAdEventListener(
+  //     RewardedAdEventType.LOADED,
+  //     () => {
+  //       rewarded.show();
+  //     },
+  //   );
+
+  //   const unsubscribeEarned = rewarded.addAdEventListener(
+  //     RewardedAdEventType.EARNED_REWARD,
+  //     reward => {
+  //       console.log('Callback called!');
+  //     },
+  //   );
+
+  //   rewarded.load();
+
+  //   setHintView(true);
+  // };
+
+  const showAd = () => {
+    const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: true,
+      keywords: ['education', 'fun'],
+    });
+
+    console.log('Ad is loading...');
+
+    const unsubscribeLoaded = rewarded.addAdEventListener(
+      RewardedAdEventType.LOADED,
+      () => {
+        console.log('Ad Loaded!');
+        rewarded.show();
+        setHintView(true); // This should now run
+      },
+    );
+
+    const unsubscribeEarned = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      reward => {
+        console.log('Reward earned:', reward);
+        setHintView(true); // This should now run
+        cleanup();
+      },
+    );
+
+    rewarded.load();
+
+    const cleanup = () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  };
+
   return (
     <Background>
       <Header title={`Level ${question.id}`} />
@@ -108,7 +185,7 @@ const Play = () => {
           title="Watch Ads to get the Hint?"
           onConfirm={() => {
             setShowHint(false);
-            setHintView(true);
+            showAd();
           }} // Close on Yes
           onCancel={() => setShowHint(false)} // Close on No
         />
