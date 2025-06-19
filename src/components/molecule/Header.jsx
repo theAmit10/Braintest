@@ -13,7 +13,7 @@ import TextView from '../atom/TextView';
 import {useNavigation} from '@react-navigation/native';
 const {height, width} = Dimensions.get('screen');
 
-const Header = ({title}) => {
+const Header = ({title, fromscreen}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.containermain}>
@@ -21,9 +21,15 @@ const Header = ({title}) => {
         <Icon name="arrow-left" size={30} color="white" />
       </NeumorphicButton>
       <TextView title={title} />
-      <NeumorphicButton onPress={() => navigation.navigate('Levels')}>
-        <Icon name={'menu'} size={30} color="#fff" />
-      </NeumorphicButton>
+      {fromscreen === 'previousQuestion' || fromscreen === 'Levels' ? (
+        <NeumorphicButton onPress={() => navigation.navigate('HomeScreen')}>
+          <Icon name={'home'} size={30} color="#fff" />
+        </NeumorphicButton>
+      ) : (
+        <NeumorphicButton onPress={() => navigation.navigate('Levels')}>
+          <Icon name={'menu'} size={30} color="#fff" />
+        </NeumorphicButton>
+      )}
     </View>
   );
 };

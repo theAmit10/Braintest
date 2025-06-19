@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Background from '../components/molecule/Background';
 import Header from '../components/molecule/Header';
 import {COLORS} from '../contrants';
@@ -7,12 +7,14 @@ import Animated, {FadeInDown} from 'react-native-reanimated';
 import useFirstInstall from '../contrants/hooks';
 import {getQuestions} from '../database/databaseAction';
 import {getCurrentQuestion} from '../contrants/helper';
+import {useNavigation} from '@react-navigation/native';
 
 const Levels = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const flatListRef = useRef(null);
   const isFirstInstall = useFirstInstall();
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -64,7 +66,7 @@ const Levels = () => {
 
   return (
     <Background>
-      <Header title={'All Levels'} />
+      <Header title={'All Levels'} fromscreen={'Levels'} />
       <View style={styles.maincontainer}>
         {isLoading ? (
           <Text style={styles.textStyle}>Loading...</Text>
@@ -80,15 +82,27 @@ const Levels = () => {
               index,
             })}
             renderItem={({item, index}) => (
-              <Animated.View
-                entering={FadeInDown.delay(index * 100)}
-                style={{
-                  ...styles.contentContainer,
-                  backgroundColor:
-                    item.solved === 1 ? COLORS.success : COLORS.backgroundLight,
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  if (item.solved === 1) {
+                    navigation.navigate('PreviousQuestion', {
+                      question: item,
+                    });
+                  }
                 }}>
-                <Text style={styles.textStyle}>Level {item.id}</Text>
-              </Animated.View>
+                <Animated.View
+                  entering={FadeInDown.delay(index * 100)}
+                  style={{
+                    ...styles.contentContainer,
+                    backgroundColor:
+                      item.solved === 1
+                        ? COLORS.success
+                        : COLORS.backgroundLight,
+                  }}>
+                  <Text style={styles.textStyle}>Level {item.id}</Text>
+                </Animated.View>
+              </TouchableOpacity>
             )}
           />
         ) : (

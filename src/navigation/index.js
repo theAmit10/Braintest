@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import Levels from '../screens/Levels';
 import Play from '../screens/Play';
+import PreviousQuestion from '../screens/PreviousQuestion';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ const Main = () => {
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="Levels" component={Levels} />
           <Stack.Screen name="Play" component={Play} />
+          <Stack.Screen name="PreviousQuestion" component={PreviousQuestion} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
