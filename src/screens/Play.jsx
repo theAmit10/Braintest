@@ -23,11 +23,23 @@ import {
   TestIds,
   RewardedAd,
   RewardedAdEventType,
+  RewardedInterstitialAd,
 } from 'react-native-google-mobile-ads';
 
 const adUnitId = __DEV__
   ? TestIds.INTERSTITIAL
   : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+const adUnitIdAnswer = __DEV__
+  ? TestIds.REWARDED_INTERSTITIAL
+  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+const rewardedInterstitial = RewardedInterstitialAd.createForAdRequest(
+  adUnitIdAnswer,
+  {
+    keywords: ['fashion', 'clothing'],
+  },
+);
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
   keywords: ['fashion', 'clothing'],
@@ -156,6 +168,40 @@ const Play = () => {
     };
   };
 
+  const showAnswerAd = () => {
+    const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: true,
+      keywords: ['education', 'fun'],
+    });
+
+    console.log('Ad is loading...');
+
+    const unsubscribeLoaded = rewarded.addAdEventListener(
+      RewardedAdEventType.LOADED,
+      () => {
+        console.log('Ad Loaded!');
+        rewarded.show();
+        setAnswerView(true);
+      },
+    );
+
+    const unsubscribeEarned = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      reward => {
+        console.log('Reward earned:', reward);
+        setAnswerView(true);
+        cleanup();
+      },
+    );
+
+    rewarded.load();
+
+    const cleanup = () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  };
+
   return (
     <Background>
       <Header title={`Level ${question.id}`} />
@@ -217,7 +263,7 @@ const Play = () => {
           title="Watch Ads to skip this question ?"
           onConfirm={() => {
             setShowNextQuestion(false);
-            setAnswerView(true);
+            showAnswerAd();
           }} // Close on Yes
           onCancel={() => setShowNextQuestion(false)} // Close on No
         />
