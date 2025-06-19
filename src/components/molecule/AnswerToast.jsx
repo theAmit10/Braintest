@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   bottomCon: {
     height: 50,
