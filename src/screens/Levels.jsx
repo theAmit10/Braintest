@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import Background from '../components/molecule/Background';
 import Header from '../components/molecule/Header';
@@ -6,11 +6,12 @@ import {COLORS} from '../contrants';
 import Animated, {FadeInDown} from 'react-native-reanimated';
 import useFirstInstall from '../contrants/hooks';
 import {getQuestions} from '../database/databaseAction';
+import {getCurrentQuestion} from '../contrants/helper';
 
 const Levels = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const flatListRef = useRef(null);
   const isFirstInstall = useFirstInstall();
 
   useEffect(() => {
@@ -31,8 +32,35 @@ const Levels = () => {
     }
   }, [isFirstInstall]);
 
-  console.log('Rendered Questions:', allQuestions);
-  console.log('all questions length', allQuestions?.length);
+  const [question, setQuestion] = useState('');
+
+  const fetchQuestion = async () => {
+    const quest = await getCurrentQuestion();
+    setQuestion(quest);
+    console.log('Current Question TA :', quest);
+  };
+
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      const quest = await getCurrentQuestion();
+      setQuestion(quest);
+      console.log('Current Question TA :', quest);
+
+      // Scroll to current question after slight delay (when FlatList is populated)
+      setTimeout(() => {
+        if (flatListRef.current && quest?.id) {
+          const index = allQuestions.findIndex(q => q.id === quest.id);
+          if (index !== -1) {
+            flatListRef.current.scrollToIndex({index, animated: true});
+          }
+        }
+      }, 300); // wait for FlatList to render
+    };
+
+    if (allQuestions.length > 0) {
+      fetchQuestion();
+    }
+  }, [allQuestions]);
 
   return (
     <Background>
@@ -42,9 +70,15 @@ const Levels = () => {
           <Text style={styles.textStyle}>Loading...</Text>
         ) : allQuestions.length > 0 ? (
           <FlatList
+            ref={flatListRef}
             data={allQuestions}
             showsVerticalScrollIndicator={false}
             keyExtractor={item => item.id.toString()}
+            getItemLayout={(data, index) => ({
+              length: 80,
+              offset: 80 * index,
+              index,
+            })}
             renderItem={({item, index}) => (
               <Animated.View
                 entering={FadeInDown.delay(index * 100)}
