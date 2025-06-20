@@ -19,7 +19,8 @@ import {
 //   ? TestIds.ADAPTIVE_BANNER
 //   : 'ca-app-pub-7633228298096492~7079873038';
 
-const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
+// const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
+const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const Levels = () => {
   const [allQuestions, setAllQuestions] = useState([]);
