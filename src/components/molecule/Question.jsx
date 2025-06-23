@@ -1,11 +1,21 @@
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useRef} from 'react';
 import {COLORS} from '../../contrants';
 
-const Question = ({question}) => {
+const Question = ({question, adsLoading}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{question?.question}</Text>
+      {adsLoading ? (
+        <ActivityIndicator size="large" color={'cyan'} />
+      ) : (
+        <Text style={styles.text}>{question?.question}</Text>
+      )}
     </View>
   );
 };
