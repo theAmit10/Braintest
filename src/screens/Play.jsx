@@ -30,7 +30,7 @@ import {
 //   ? TestIds.INTERSTITIAL
 //   : 'ca-app-pub-7633228298096492~7079873038';
 
-const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
+const adUnitId = 'ca-app-pub-7633228298096492/6242004904';
 
 // const adUnitIdAnswer = __DEV__
 //   ? TestIds.REWARDED_INTERSTITIAL
@@ -137,10 +137,12 @@ const Play = () => {
   // };
 
   const showAd = () => {
-    const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-      requestNonPersonalizedAdsOnly: true,
-      keywords: ['education', 'fun'],
-    });
+    // const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+    //   requestNonPersonalizedAdsOnly: true,
+    //   keywords: ['education', 'fun'],
+    // });
+
+    const rewarded = RewardedAd.createForAdRequest(adUnitId);
 
     console.log('Ad is loading...');
 

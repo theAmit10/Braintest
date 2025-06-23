@@ -28,7 +28,10 @@ import {
 //   ? TestIds.ADAPTIVE_BANNER
 //   : 'ca-app-pub-7633228298096492~7079873038';
 
+// <<<<<<< HEAD
 // const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
+// =======
+// >>>>>>> 57c08bd (removed keyword and all)
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const HomeScreen = () => {
