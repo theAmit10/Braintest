@@ -100,77 +100,12 @@ const Play = () => {
   const [loaded, setLoaded] = useState(false);
   const [adsLoading, setAdLoading] = useState(false);
 
-  // const showAd = () => {
-  //   const rewarded = RewardedAd.createForAdRequest(adUnitId);
-
-  //   console.log('Ad is loading...');
-
-  //   const unsubscribeLoaded = rewarded.addAdEventListener(
-  //     RewardedAdEventType.LOADED,
-  //     () => {
-  //       console.log('Ad Loaded!');
-  //       rewarded.show();
-  //       setHintView(true); // This should now run
-  //     },
-  //   );
-
-  //   const unsubscribeEarned = rewarded.addAdEventListener(
-  //     RewardedAdEventType.EARNED_REWARD,
-  //     reward => {
-  //       console.log('Reward earned:', reward);
-  //       setHintView(true); // This should now run
-  //       cleanup();
-  //     },
-  //   );
-
-  //   rewarded.load();
-
-  //   const cleanup = () => {
-  //     unsubscribeLoaded();
-  //     unsubscribeEarned();
-  //   };
-  // };
-
-  // const showAnswerAd = () => {
-  //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-  //     requestNonPersonalizedAdsOnly: true,
-  //     keywords: ['education', 'fun'],
-  //   });
-
-  //   console.log('Ad is loading...');
-
-  //   const unsubscribeLoaded = rewarded.addAdEventListener(
-  //     RewardedAdEventType.LOADED,
-  //     () => {
-  //       console.log('Ad Loaded!');
-  //       rewarded.show();
-  //       setAnswerView(true);
-  //     },
-  //   );
-
-  //   const unsubscribeEarned = rewarded.addAdEventListener(
-  //     RewardedAdEventType.EARNED_REWARD,
-  //     reward => {
-  //       console.log('Reward earned:', reward);
-  //       setAnswerView(true);
-  //       cleanup();
-  //     },
-  //   );
-
-  //   rewarded.load();
-
-  //   const cleanup = () => {
-  //     unsubscribeLoaded();
-  //     unsubscribeEarned();
-  //   };
-  // };
-
   const showAd = () => {
     setAdLoading(true);
     // Create a new instance each time
     const rewarded = RewardedAd.createForAdRequest(adUnitId, {
       requestNonPersonalizedAdsOnly: true,
-      keywords: ['education', 'game'],
+      keywords: ['education', 'game', 'quiz', 'puzzle', 'brain', 'trivia'],
     });
 
     console.log('Ad is loading...');
@@ -234,7 +169,7 @@ const Play = () => {
     // Create a new instance each time
     const rewarded = RewardedAd.createForAdRequest(adUnitId, {
       requestNonPersonalizedAdsOnly: true,
-      keywords: ['education', 'game'],
+      keywords: ['education', 'game', 'quiz', 'puzzle', 'brain', 'trivia'],
     });
 
     console.log('Answer Ad is loading...');
@@ -295,101 +230,6 @@ const Play = () => {
     rewarded.load();
   };
 
-  // const showAd = () => {
-  //   setAdLoading(true);
-  //   // Create a new instance each time
-  //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-  //     requestNonPersonalizedAdsOnly: true,
-  //     keywords: ['education', 'game'],
-  //   });
-
-  //   console.log('Ad is loading...');
-
-  //   const unsubscribeLoaded = rewarded.addAdEventListener(
-  //     RewardedAdEventType.LOADED,
-  //     () => {
-  //       console.log('Ad Loaded!');
-  //       setLoaded(true);
-  //       rewarded.show();
-  //     },
-  //   );
-
-  //   const unsubscribeEarned = rewarded.addAdEventListener(
-  //     RewardedAdEventType.EARNED_REWARD,
-  //     reward => {
-  //       console.log('Reward earned:', reward);
-  //       setAdLoading(false);
-  //       setHintView(true);
-  //       unsubscribeLoaded();
-  //       unsubscribeEarned();
-  //     },
-  //   );
-
-  //   const unsubscribeClosed = rewarded.addAdEventListener(
-  //     AdEventType.CLOSED,
-  //     () => {
-  //       console.log('Ad closed');
-  //       if (!loaded) {
-  //         // If ad wasn't loaded properly, still show hint
-  //         setAdLoading(false);
-  //         setHintView(true);
-  //       }
-  //       unsubscribeLoaded();
-  //       unsubscribeEarned();
-  //       unsubscribeClosed();
-  //     },
-  //   );
-
-  //   rewarded.load();
-  // };
-
-  // const showAnswerAd = () => {
-  //   setAdLoading(true);
-  //   // Create a new instance each time
-  //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-  //     requestNonPersonalizedAdsOnly: true,
-  //     keywords: ['education', 'game'],
-  //   });
-
-  //   console.log('Answer Ad is loading...');
-
-  //   const unsubscribeLoaded = rewarded.addAdEventListener(
-  //     RewardedAdEventType.LOADED,
-  //     () => {
-  //       console.log('Answer Ad Loaded!');
-  //       setLoaded(true);
-  //       rewarded.show();
-  //     },
-  //   );
-
-  //   const unsubscribeEarned = rewarded.addAdEventListener(
-  //     RewardedAdEventType.EARNED_REWARD,
-  //     reward => {
-  //       console.log('Reward earned:', reward);
-  //       setAdLoading(false);
-  //       setAnswerView(true);
-  //       unsubscribeLoaded();
-  //       unsubscribeEarned();
-  //     },
-  //   );
-
-  //   const unsubscribeClosed = rewarded.addAdEventListener(
-  //     AdEventType.CLOSED,
-  //     () => {
-  //       console.log('Ad closed');
-  //       if (!loaded) {
-  //         // If ad wasn't loaded properly, still show answer
-  //         setAdLoading(false);
-  //         setAnswerView(true);
-  //       }
-  //       unsubscribeLoaded();
-  //       unsubscribeEarned();
-  //       unsubscribeClosed();
-  //     },
-  //   );
-
-  //   rewarded.load();
-  // };
   return (
     <Background>
       <Header title={`Level ${question.id}`} />
@@ -479,7 +319,14 @@ export default Play;
 
 const styles = StyleSheet.create({});
 
-// import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+// import {
+//   ActivityIndicator,
+//   Platform,
+//   StatusBar,
+//   StyleSheet,
+//   Text,
+//   View,
+// } from 'react-native';
 // import React, {useEffect, useState} from 'react';
 // import Background from '../components/molecule/Background';
 // import Header from '../components/molecule/Header';
@@ -507,26 +354,7 @@ const styles = StyleSheet.create({});
 //   RewardedInterstitialAd,
 // } from 'react-native-google-mobile-ads';
 
-// // const adUnitId = __DEV__
-// //   ? TestIds.INTERSTITIAL
-// //   : 'ca-app-pub-7633228298096492~7079873038';
-
 // const adUnitId = 'ca-app-pub-7633228298096492/6242004904';
-
-// // const adUnitIdAnswer = __DEV__
-// //   ? TestIds.REWARDED_INTERSTITIAL
-// //   : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
-
-// // const rewardedInterstitial = RewardedInterstitialAd.createForAdRequest(
-// //   adUnitIdAnswer,
-// //   {
-// //     keywords: ['fashion', 'clothing'],
-// //   },
-// // );
-
-// // const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-// //   keywords: ['fashion', 'clothing'],
-// // });
 
 // const Play = () => {
 //   const navigation = useNavigation();
@@ -591,72 +419,79 @@ const styles = StyleSheet.create({});
 
 //   // FOR REWARDED ADS
 //   const [loaded, setLoaded] = useState(false);
+//   const [adsLoading, setAdLoading] = useState(false);
 
 //   // const showAd = () => {
-//   //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-//   //     requestNonPersonalizedAdsOnly: true,
-//   //     keywords: ['fashion', 'clothing'],
-//   //   });
+//   //   const rewarded = RewardedAd.createForAdRequest(adUnitId);
+
+//   //   console.log('Ad is loading...');
 
 //   //   const unsubscribeLoaded = rewarded.addAdEventListener(
 //   //     RewardedAdEventType.LOADED,
 //   //     () => {
+//   //       console.log('Ad Loaded!');
 //   //       rewarded.show();
+//   //       setHintView(true); // This should now run
 //   //     },
 //   //   );
 
 //   //   const unsubscribeEarned = rewarded.addAdEventListener(
 //   //     RewardedAdEventType.EARNED_REWARD,
 //   //     reward => {
-//   //       console.log('Callback called!');
+//   //       console.log('Reward earned:', reward);
+//   //       setHintView(true); // This should now run
+//   //       cleanup();
 //   //     },
 //   //   );
 
 //   //   rewarded.load();
 
-//   //   setHintView(true);
+//   //   const cleanup = () => {
+//   //     unsubscribeLoaded();
+//   //     unsubscribeEarned();
+//   //   };
+//   // };
+
+//   // const showAnswerAd = () => {
+//   //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+//   //     requestNonPersonalizedAdsOnly: true,
+//   //     keywords: ['education', 'fun'],
+//   //   });
+
+//   //   console.log('Ad is loading...');
+
+//   //   const unsubscribeLoaded = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.LOADED,
+//   //     () => {
+//   //       console.log('Ad Loaded!');
+//   //       rewarded.show();
+//   //       setAnswerView(true);
+//   //     },
+//   //   );
+
+//   //   const unsubscribeEarned = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.EARNED_REWARD,
+//   //     reward => {
+//   //       console.log('Reward earned:', reward);
+//   //       setAnswerView(true);
+//   //       cleanup();
+//   //     },
+//   //   );
+
+//   //   rewarded.load();
+
+//   //   const cleanup = () => {
+//   //     unsubscribeLoaded();
+//   //     unsubscribeEarned();
+//   //   };
 //   // };
 
 //   const showAd = () => {
-//     // const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-//     //   requestNonPersonalizedAdsOnly: true,
-//     //   keywords: ['education', 'fun'],
-//     // });
-
-//     const rewarded = RewardedAd.createForAdRequest(adUnitId);
-
-//     console.log('Ad is loading...');
-
-//     const unsubscribeLoaded = rewarded.addAdEventListener(
-//       RewardedAdEventType.LOADED,
-//       () => {
-//         console.log('Ad Loaded!');
-//         rewarded.show();
-//         setHintView(true); // This should now run
-//       },
-//     );
-
-//     const unsubscribeEarned = rewarded.addAdEventListener(
-//       RewardedAdEventType.EARNED_REWARD,
-//       reward => {
-//         console.log('Reward earned:', reward);
-//         setHintView(true); // This should now run
-//         cleanup();
-//       },
-//     );
-
-//     rewarded.load();
-
-//     const cleanup = () => {
-//       unsubscribeLoaded();
-//       unsubscribeEarned();
-//     };
-//   };
-
-//   const showAnswerAd = () => {
+//     setAdLoading(true);
+//     // Create a new instance each time
 //     const rewarded = RewardedAd.createForAdRequest(adUnitId, {
 //       requestNonPersonalizedAdsOnly: true,
-//       keywords: ['education', 'fun'],
+//       keywords: ['education', 'game'],
 //     });
 
 //     console.log('Ad is loading...');
@@ -665,8 +500,8 @@ const styles = StyleSheet.create({});
 //       RewardedAdEventType.LOADED,
 //       () => {
 //         console.log('Ad Loaded!');
+//         setLoaded(true);
 //         rewarded.show();
-//         setAnswerView(true);
 //       },
 //     );
 
@@ -674,23 +509,213 @@ const styles = StyleSheet.create({});
 //       RewardedAdEventType.EARNED_REWARD,
 //       reward => {
 //         console.log('Reward earned:', reward);
-//         setAnswerView(true);
-//         cleanup();
+//         setAdLoading(false);
+//         setHintView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//       },
+//     );
+
+//     const unsubscribeClosed = rewarded.addAdEventListener(
+//       AdEventType.CLOSED,
+//       () => {
+//         console.log('Ad closed');
+//         setAdLoading(false); // Always set loading to false when ad closes
+//         // if (!loaded) {
+//         //   // If ad wasn't loaded properly, still show hint
+//         //   setHintView(true);
+//         // }
+//         setHintView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//       },
+//     );
+
+//     const unsubscribeError = rewarded.addAdEventListener(
+//       AdEventType.ERROR,
+//       error => {
+//         console.log('Ad error:', error);
+//         setAdLoading(false);
+//         // Optionally show hint even on error if you want
+//         setHintView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//         unsubscribeError();
 //       },
 //     );
 
 //     rewarded.load();
-
-//     const cleanup = () => {
-//       unsubscribeLoaded();
-//       unsubscribeEarned();
-//     };
 //   };
 
+//   const showAnswerAd = () => {
+//     setAdLoading(true);
+//     // Create a new instance each time
+//     const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+//       requestNonPersonalizedAdsOnly: true,
+//       keywords: ['education', 'game'],
+//     });
+
+//     console.log('Answer Ad is loading...');
+
+//     const unsubscribeLoaded = rewarded.addAdEventListener(
+//       RewardedAdEventType.LOADED,
+//       () => {
+//         console.log('Answer Ad Loaded!');
+//         setLoaded(true);
+//         rewarded.show();
+//       },
+//     );
+
+//     const unsubscribeEarned = rewarded.addAdEventListener(
+//       RewardedAdEventType.EARNED_REWARD,
+//       reward => {
+//         console.log('Reward earned:', reward);
+//         setAdLoading(false);
+//         setAnswerView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//         unsubscribeError();
+//       },
+//     );
+
+//     const unsubscribeClosed = rewarded.addAdEventListener(
+//       AdEventType.CLOSED,
+//       () => {
+//         console.log('Ad closed');
+//         setAdLoading(false); // Always set loading to false when ad closes
+//         // if (!loaded) {
+//         //   // If ad wasn't loaded properly, still show answer
+//         //   setAnswerView(true);
+//         // }
+//         setAnswerView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//         unsubscribeError();
+//       },
+//     );
+
+//     const unsubscribeError = rewarded.addAdEventListener(
+//       AdEventType.ERROR,
+//       error => {
+//         console.log('Ad error:', error);
+//         setAdLoading(false);
+//         // Optionally show answer even on error if you want
+//         setAnswerView(true);
+//         unsubscribeLoaded();
+//         unsubscribeEarned();
+//         unsubscribeClosed();
+//         unsubscribeError();
+//       },
+//     );
+
+//     rewarded.load();
+//   };
+
+//   // const showAd = () => {
+//   //   setAdLoading(true);
+//   //   // Create a new instance each time
+//   //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+//   //     requestNonPersonalizedAdsOnly: true,
+//   //     keywords: ['education', 'game'],
+//   //   });
+
+//   //   console.log('Ad is loading...');
+
+//   //   const unsubscribeLoaded = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.LOADED,
+//   //     () => {
+//   //       console.log('Ad Loaded!');
+//   //       setLoaded(true);
+//   //       rewarded.show();
+//   //     },
+//   //   );
+
+//   //   const unsubscribeEarned = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.EARNED_REWARD,
+//   //     reward => {
+//   //       console.log('Reward earned:', reward);
+//   //       setAdLoading(false);
+//   //       setHintView(true);
+//   //       unsubscribeLoaded();
+//   //       unsubscribeEarned();
+//   //     },
+//   //   );
+
+//   //   const unsubscribeClosed = rewarded.addAdEventListener(
+//   //     AdEventType.CLOSED,
+//   //     () => {
+//   //       console.log('Ad closed');
+//   //       if (!loaded) {
+//   //         // If ad wasn't loaded properly, still show hint
+//   //         setAdLoading(false);
+//   //         setHintView(true);
+//   //       }
+//   //       unsubscribeLoaded();
+//   //       unsubscribeEarned();
+//   //       unsubscribeClosed();
+//   //     },
+//   //   );
+
+//   //   rewarded.load();
+//   // };
+
+//   // const showAnswerAd = () => {
+//   //   setAdLoading(true);
+//   //   // Create a new instance each time
+//   //   const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+//   //     requestNonPersonalizedAdsOnly: true,
+//   //     keywords: ['education', 'game'],
+//   //   });
+
+//   //   console.log('Answer Ad is loading...');
+
+//   //   const unsubscribeLoaded = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.LOADED,
+//   //     () => {
+//   //       console.log('Answer Ad Loaded!');
+//   //       setLoaded(true);
+//   //       rewarded.show();
+//   //     },
+//   //   );
+
+//   //   const unsubscribeEarned = rewarded.addAdEventListener(
+//   //     RewardedAdEventType.EARNED_REWARD,
+//   //     reward => {
+//   //       console.log('Reward earned:', reward);
+//   //       setAdLoading(false);
+//   //       setAnswerView(true);
+//   //       unsubscribeLoaded();
+//   //       unsubscribeEarned();
+//   //     },
+//   //   );
+
+//   //   const unsubscribeClosed = rewarded.addAdEventListener(
+//   //     AdEventType.CLOSED,
+//   //     () => {
+//   //       console.log('Ad closed');
+//   //       if (!loaded) {
+//   //         // If ad wasn't loaded properly, still show answer
+//   //         setAdLoading(false);
+//   //         setAnswerView(true);
+//   //       }
+//   //       unsubscribeLoaded();
+//   //       unsubscribeEarned();
+//   //       unsubscribeClosed();
+//   //     },
+//   //   );
+
+//   //   rewarded.load();
+//   // };
 //   return (
 //     <Background>
 //       <Header title={`Level ${question.id}`} />
-//       <Question question={question} />
+//       <Question question={question} adsLoading={adsLoading} />
+
 //       {showInput && (
 //         <AnswerInput
 //           showAlert={showAlert}
@@ -725,7 +750,10 @@ const styles = StyleSheet.create({});
 //       {hintView && (
 //         <CustomHintAleart
 //           title={question.hint}
-//           onConfirm={() => setHintView(false)} // Close on Yes
+//           onConfirm={() => {
+//             setHintView(false);
+//             // setAdLoading(false);
+//           }} // Close on Yes
 //           onCancel={() => setHintView(false)} // Close on No
 //         />
 //       )}
@@ -737,6 +765,7 @@ const styles = StyleSheet.create({});
 //           subtitle={correctAnswer}
 //           onConfirm={() => {
 //             setIsAlertVisible(false);
+//             // setAdLoading(false);
 //             navigation.replace('Play');
 //           }} // Close on Yes
 //           onCancel={() => setIsAlertVisible(false)} // Close on No
