@@ -12,7 +12,7 @@ import {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import {Gesture} from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import LottieView from 'lottie-react-native';
 import {getQuestions} from '../database/databaseAction';
@@ -23,12 +23,6 @@ import {
   TestIds,
   useForeground,
 } from 'react-native-google-mobile-ads';
-
-// const adUnitId = __DEV__
-//   ? TestIds.ADAPTIVE_BANNER
-//   : 'ca-app-pub-7633228298096492~7079873038';
-
-// const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
 
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
