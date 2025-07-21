@@ -129,6 +129,9 @@ const AnswerInput = ({showAlert, answer, setAnswer}) => {
   }));
 
   const handlePress = () => {
+    if (answer === 'Answer') {
+      return;
+    }
     translateX.value = withTiming(-containerWidth, {duration: 500}, () => {
       runOnJS(showAlert)();
     });
@@ -141,7 +144,15 @@ const AnswerInput = ({showAlert, answer, setAnswer}) => {
       </View>
       {/* Animated Ball */}
       <Animated.View style={[styles.ballContainer, animatedStyle]}>
-        <TouchableOpacity style={styles.ball} onPress={handlePress}>
+        <TouchableOpacity
+          style={[
+            styles.ball,
+            {
+              borderColor: 'cyan',
+              borderWidth: answer === 'Answer' || '' ? 0 : 2,
+            },
+          ]}
+          onPress={handlePress}>
           <FontAwesome name="send" size={25} color="white" />
         </TouchableOpacity>
       </Animated.View>
