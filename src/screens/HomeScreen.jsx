@@ -24,6 +24,8 @@ import {
   useForeground,
 } from 'react-native-google-mobile-ads';
 import HomeTitle from '../components/home/HomeTitle';
+import HomeRobot from '../components/home/HomeRobot';
+import HomeButton from '../components/home/HomeButton';
 
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
@@ -88,71 +90,28 @@ const HomeScreen = () => {
       <View style={styles.container}>
         <View style={styles.mainContainer}>
           {/* Header with Math Riddles title */}
-          <HomeTitle animatedStyles={animatedStyles} />
+          <HomeTitle />
           {/* Centered Robot Animation */}
 
-          <View style={styles.robotContainer}>
-            <Animated.View
-              style={[styles.CenterContainer, animatedStyle]}
-              onLayout={onLayout}>
-              <LottieView
-                style={styles.robotAnimation}
-                source={require('../../assets/images/robot.json')}
-                autoPlay
-                loop
-              />
-            </Animated.View>
-          </View>
+          <HomeRobot onLayout={onLayout} animatedStyle={animatedStyle} />
 
           {/* Play Button */}
-          <Pressable onPress={() => navigation.navigate('Play')}>
-            <LinearGradient
-              style={styles.boxContainer}
-              colors={[COLORS.backgoundDark, COLORS.backgroundLight]}
-              start={{x: 0, y: 0}}
-              end={{x: 0, y: 1}}>
-              <LinearGradient
-                style={[styles.ballConatiner, animatedStyles]}
-                colors={['cyan', COLORS.backgroundLight]}
-                start={{x: 0, y: 0}}
-                end={{x: 0, y: 1}}
-              />
-              <View style={styles.textContainer}>
-                <Text style={styles.textlabel}>Play</Text>
-              </View>
-              <LinearGradient
-                style={styles.ballConatiner}
-                colors={[COLORS.backgoundDark, COLORS.backgroundLight]}
-                start={{x: 0, y: 0}}
-                end={{x: 0, y: 1}}
-              />
-            </LinearGradient>
-          </Pressable>
-
+          <HomeButton
+            title="Play"
+            animatedStyles={animatedStyles}
+            onPress={() => navigation.navigate('Play')}
+            firstBall={true}
+            secondBall={false}
+          />
           {/* Levels Button */}
-          <Pressable onPress={() => navigation.navigate('Levels')}>
-            <LinearGradient
-              style={styles.boxContainer}
-              colors={[COLORS.backgoundDark, COLORS.backgroundLight]}
-              start={{x: 0, y: 0}}
-              end={{x: 0, y: 1}}>
-              <LinearGradient
-                style={styles.ballConatiner}
-                colors={[COLORS.backgoundDark, COLORS.backgroundLight]}
-                start={{x: 0, y: 0}}
-                end={{x: 0, y: 1}}
-              />
-              <View style={styles.textContainer}>
-                <Text style={styles.textlabel}>All Levels</Text>
-              </View>
-              <LinearGradient
-                style={[styles.ballConatiner, animatedStyles]}
-                colors={['cyan', COLORS.backgroundLight]}
-                start={{x: 0, y: 0}}
-                end={{x: 0, y: 1}}
-              />
-            </LinearGradient>
-          </Pressable>
+
+          <HomeButton
+            title={'All Levels'}
+            animatedStyles={animatedStyles}
+            onPress={() => navigation.navigate('Levels')}
+            firstBall={false}
+            secondBall={true}
+          />
         </View>
         {/** For add banner */}
         {/* <BannerAd
