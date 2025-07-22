@@ -169,7 +169,7 @@ const HomeScreen = () => {
           </Pressable>
         </View>
         {/** For add banner */}
-        <BannerAd
+        {/* <BannerAd
           unitId={adUnitId}
           size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
           requestOptions={{
@@ -177,7 +177,7 @@ const HomeScreen = () => {
               collapsible: 'bottom',
             },
           }}
-        />
+        /> */}
       </View>
     </Background>
   );

@@ -15,12 +15,6 @@ import {
   useForeground,
 } from 'react-native-google-mobile-ads';
 
-// const adUnitId = __DEV__
-//   ? TestIds.ADAPTIVE_BANNER
-//   : 'ca-app-pub-7633228298096492~7079873038';
-
-// const adUnitId = 'ca-app-pub-7633228298096492~7079873038';
-
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const Levels = () => {
@@ -120,7 +114,7 @@ const Levels = () => {
                 </TouchableOpacity>
               )}
             />
-            <BannerAd
+            {/* <BannerAd
               unitId={adUnitId}
               size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
               requestOptions={{
@@ -128,7 +122,7 @@ const Levels = () => {
                   collapsible: 'bottom',
                 },
               }}
-            />
+            /> */}
           </>
         ) : (
           <Text style={styles.textStyle}>No data found</Text>
