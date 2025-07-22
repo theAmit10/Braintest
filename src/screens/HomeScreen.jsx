@@ -23,6 +23,7 @@ import {
   TestIds,
   useForeground,
 } from 'react-native-google-mobile-ads';
+import HomeTitle from '../components/home/HomeTitle';
 
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
@@ -87,24 +88,9 @@ const HomeScreen = () => {
       <View style={styles.container}>
         <View style={styles.mainContainer}>
           {/* Header with Math Riddles title */}
-          <LinearGradient
-            style={styles.boxContainer}
-            colors={[COLORS.backgoundDark, COLORS.backgroundLight]}
-            start={{x: 0, y: 0}}
-            end={{x: 0, y: 1}}>
-            <FourPartCircle />
-            <View style={styles.textContainer}>
-              <Text style={styles.textlabel}>Math Riddles</Text>
-            </View>
-            <LinearGradient
-              style={[styles.ballConatiner, animatedStyles]}
-              colors={['cyan', COLORS.backgroundLight]}
-              start={{x: 0, y: 0}}
-              end={{x: 0, y: 1}}
-            />
-          </LinearGradient>
-
+          <HomeTitle animatedStyles={animatedStyles} />
           {/* Centered Robot Animation */}
+
           <View style={styles.robotContainer}>
             <Animated.View
               style={[styles.CenterContainer, animatedStyle]}
