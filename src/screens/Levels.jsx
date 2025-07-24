@@ -114,7 +114,7 @@ const Levels = () => {
                 </TouchableOpacity>
               )}
             />
-            {/* <BannerAd
+            <BannerAd
               unitId={adUnitId}
               size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
               requestOptions={{
@@ -122,7 +122,7 @@ const Levels = () => {
                   collapsible: 'bottom',
                 },
               }}
-            /> */}
+            />
           </>
         ) : (
           <Text style={styles.textStyle}>No data found</Text>
