@@ -8,12 +8,7 @@ import useFirstInstall from '../contrants/hooks';
 import {getQuestions} from '../database/databaseAction';
 import {getCurrentQuestion} from '../contrants/helper';
 import {useNavigation} from '@react-navigation/native';
-import {
-  BannerAd,
-  BannerAdSize,
-  TestIds,
-  useForeground,
-} from 'react-native-google-mobile-ads';
+import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 
 const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
