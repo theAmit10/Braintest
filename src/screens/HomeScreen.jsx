@@ -1,10 +1,8 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {COLORS} from '../contrants';
 import Background from '../components/molecule/Background';
 import {useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
-import FourPartCircle from '../components/atom/FourPartCircle';
 import {FONT} from '../../assets/constants';
 import {
   useAnimatedStyle,
@@ -13,16 +11,9 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 import {Gesture} from 'react-native-gesture-handler';
-import Animated from 'react-native-reanimated';
-import LottieView from 'lottie-react-native';
 import {getQuestions} from '../database/databaseAction';
 import useFirstInstall from '../contrants/hooks';
-import {
-  BannerAd,
-  BannerAdSize,
-  TestIds,
-  useForeground,
-} from 'react-native-google-mobile-ads';
+import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 import HomeTitle from '../components/home/HomeTitle';
 import HomeRobot from '../components/home/HomeRobot';
 import HomeButton from '../components/home/HomeButton';
