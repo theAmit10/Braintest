@@ -2,6 +2,7 @@
   "name": "Braintest",
   "displayName": "Braintest",
    "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-7633228298096492~7079873038"
+    "android_app_id": "ca-app-pub-7633228298096492~7079873038",
+      "ios_app_id": "ca-app-pub-7633228298096492~9520169626"
   }
 }
