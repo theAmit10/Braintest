@@ -96,8 +96,8 @@ const HomeScreen = () => {
             title="Play"
             animatedStyles={animatedStyles}
             onPress={() => navigation.navigate('Play')}
-            firstBall={true}
-            secondBall={false}
+            firstBall={false}
+            secondBall={true}
           />
 
           {/* Levels Button */}
@@ -110,7 +110,6 @@ const HomeScreen = () => {
           />
         </View>
 
-        {/* ✅ Fixed Banner always at bottom */}
         <View style={styles.bannerContainer}>
           <BannerAd
             unitId={adUnitId}

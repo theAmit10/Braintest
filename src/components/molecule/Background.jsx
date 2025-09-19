@@ -23,8 +23,6 @@ const Background = ({children}) => {
         <SafeAreaView
           style={{
             flex: 1,
-            paddingTop: insets.top, // ✅ avoid notch
-            paddingBottom: insets.bottom, // ✅ avoid nav bar overlap
           }}>
           {children}
         </SafeAreaView>

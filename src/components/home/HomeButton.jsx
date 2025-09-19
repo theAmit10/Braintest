@@ -21,7 +21,7 @@ const HomeButton = ({
         <LinearGradient
           style={[styles.ballConatiner, animatedStyles]}
           colors={
-            firstBall
+            secondBall
               ? ['cyan', COLORS.backgroundLight]
               : [COLORS.backgoundDark, COLORS.backgroundLight]
           }
@@ -49,30 +49,6 @@ const HomeButton = ({
 export default HomeButton;
 
 const styles = StyleSheet.create({
-  robotContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  CenterContainer: {
-    height: 250,
-    width: '100%',
-    backgroundColor: COLORS.backgroundLight,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 20,
-    alignSelf: 'center',
-  },
-  robotAnimation: {
-    height: 200,
-    width: 200,
-  },
-  textContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   textlabel: {
     color: 'cyan',
     fontSize: 20,
