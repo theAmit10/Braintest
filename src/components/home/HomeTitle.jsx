@@ -14,14 +14,19 @@ const HomeTitle = ({animatedStyles}) => {
       end={{x: 0, y: 1}}>
       <FourPartCircle />
       <View style={styles.textContainer}>
-        <Text style={styles.textlabel}>Math Riddles</Text>
+        <Text style={styles.textlabel}>Math Brain</Text>
       </View>
-      <LinearGradient
-        style={[styles.ballConatiner, animatedStyles]}
-        colors={['cyan', COLORS.backgroundLight]}
-        start={{x: 0, y: 0}}
-        end={{x: 0, y: 1}}
-      />
+      {/* <View
+        style={{
+          backgroundColor: 'pink',
+        }}>
+        <LinearGradient
+          style={[styles.ballConatiner, animatedStyles]}
+          colors={[COLORS.cyan, COLORS.backgroundLight]}
+          start={{x: 0, y: 0}}
+          end={{x: 0, y: 1}}
+        />
+      </View> */}
     </LinearGradient>
   );
 };

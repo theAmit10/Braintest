@@ -36,9 +36,14 @@ import {
 // const adUnitId = 'ca-app-pub-7633228298096492/6242004904';
 
 const Play = () => {
+  // const adUnitId =
+  //   Platform.OS === 'ios'
+  //     ? 'ca-app-pub-7633228298096492/6693823598'
+  //     : 'ca-app-pub-7633228298096492/6242004904';
+
   const adUnitId =
     Platform.OS === 'ios'
-      ? 'ca-app-pub-7633228298096492/6693823598'
+      ? 'ca-app-pub-3940256099942544/1033173712'
       : 'ca-app-pub-7633228298096492/6242004904';
 
   const navigation = useNavigation();
@@ -81,8 +86,23 @@ const Play = () => {
     }
   };
 
+  // const checkAnswerIsCorrectOrNot = (mineAnswer, correctAnswer) => {
+  //   console.log('mineAnswer', mineAnswer, 'correctAnswer', correctAnswer);
+  //   if (mineAnswer == correctAnswer) {
+  //     handleCorrectAnswer(question);
+  //     setCorrectAnswer('Correct');
+  //   } else {
+  //     setCorrectAnswer('Wrong');
+  //   }
+  // };
+
   const checkAnswerIsCorrectOrNot = (mineAnswer, correctAnswer) => {
-    if (mineAnswer === correctAnswer) {
+    const mine = Number(mineAnswer);
+    const correct = Number(correctAnswer);
+
+    console.log('mineAnswer', mine, 'correctAnswer', correct);
+
+    if (mine === correct) {
       handleCorrectAnswer(question);
       setCorrectAnswer('Correct');
     } else {

@@ -13,6 +13,7 @@ export const COLORS = {
   backgroundLight: '#2A2D32',
   backgoundDark: '#131313',
   background: '#181818',
+  cyan: '#00FFFF',
 };
 
 export const FONTS = {

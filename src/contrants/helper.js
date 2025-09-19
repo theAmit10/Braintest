@@ -70,7 +70,7 @@ export const getCurrentQuestion = async () => {
       await AsyncStorage.setItem('currentQuestion', currentQuestion);
       console.log('Stored first question:', currentQuestion);
     } catch (err) {
-      console.error('Error fetching questions:', err);
+      console.log('Error fetching questions:', err);
       return null;
     }
   }

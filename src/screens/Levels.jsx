@@ -20,9 +20,14 @@ import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 // const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const Levels = () => {
+  // const adUnitId =
+  // Platform.OS === 'ios'
+  //   ? 'ca-app-pub-7633228298096492/8534391010'
+  //   : 'ca-app-pub-7633228298096492/6684858039';
+
   const adUnitId =
     Platform.OS === 'ios'
-      ? 'ca-app-pub-7633228298096492/8534391010'
+      ? 'ca-app-pub-3940256099942544/6300978111'
       : 'ca-app-pub-7633228298096492/6684858039';
 
   const [allQuestions, setAllQuestions] = useState([]);
@@ -39,7 +44,7 @@ const Levels = () => {
         setAllQuestions(questions);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.log('Error fetching questions:', error);
         setIsLoading(false);
       }
     };
