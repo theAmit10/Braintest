@@ -1,5 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Background from '../components/molecule/Background';
 import Header from '../components/molecule/Header';
 import {COLORS} from '../contrants';
@@ -10,9 +17,14 @@ import {getCurrentQuestion} from '../contrants/helper';
 import {useNavigation} from '@react-navigation/native';
 import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 
-const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
+// const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const Levels = () => {
+  const adUnitId =
+    Platform.OS === 'ios'
+      ? 'ca-app-pub-7633228298096492/8534391010'
+      : 'ca-app-pub-7633228298096492/6684858039';
+
   const [allQuestions, setAllQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const flatListRef = useRef(null);

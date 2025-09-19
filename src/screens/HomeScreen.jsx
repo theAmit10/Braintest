@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {COLORS} from '../contrants';
 import Background from '../components/molecule/Background';
@@ -18,9 +18,14 @@ import HomeTitle from '../components/home/HomeTitle';
 import HomeRobot from '../components/home/HomeRobot';
 import HomeButton from '../components/home/HomeButton';
 
-const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
+// const adUnitId = 'ca-app-pub-7633228298096492/6684858039';
 
 const HomeScreen = () => {
+  const adUnitId =
+    Platform.OS === 'ios'
+      ? 'ca-app-pub-7633228298096492/8534391010'
+      : 'ca-app-pub-7633228298096492/6684858039';
+
   const navigation = useNavigation();
 
   const pressed = useSharedValue(false);
