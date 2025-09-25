@@ -43,7 +43,7 @@ const Play = () => {
 
   const adUnitId =
     Platform.OS === 'ios'
-      ? 'ca-app-pub-3940256099942544/1033173712'
+      ? 'ca-app-pub-7633228298096492/6693823598'
       : 'ca-app-pub-7633228298096492/6242004904';
 
   const navigation = useNavigation();

@@ -110,7 +110,7 @@ const HomeScreen = () => {
           />
         </View>
 
-        {/* <View style={styles.bannerContainer}>
+        <View style={styles.bannerContainer}>
           <BannerAd
             unitId={adUnitId}
             size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
@@ -120,7 +120,7 @@ const HomeScreen = () => {
               },
             }}
           />
-        </View> */}
+        </View>
       </View>
     </Background>
   );

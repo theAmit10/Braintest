@@ -27,7 +27,7 @@ const Levels = () => {
 
   const adUnitId =
     Platform.OS === 'ios'
-      ? 'ca-app-pub-3940256099942544/6300978111'
+      ? 'ca-app-pub-7633228298096492/8534391010'
       : 'ca-app-pub-7633228298096492/6684858039';
 
   const [allQuestions, setAllQuestions] = useState([]);
